@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_skins" default_skin="TransparenciaTheme">
+ <object name="transparenciatheme_custom"
+    meta_type="Filesystem Directory View"
+    directory="transparencia.theme:skins/transparenciatheme_custom"/>
+
+ <skin-path name="TransparenciaTheme" based-on="GenwebTheme">
+  <layer name="transparenciatheme_custom" insert-after="custom"/>
+ </skin-path>
+
+</object>

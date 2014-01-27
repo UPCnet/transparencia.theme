@@ -1,0 +1,66 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="transparencia.theme">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <includeDependencies package="." />
+  <include package="grokcore.component" file="meta.zcml" />
+  <grok:grok package=".browser" />
+
+  <include package=".browser" />
+  <include package=".portlets" />
+
+  <cmf:registerDirectory name="transparenciatheme_custom" recursive="True" />
+
+  <include package="plone.resource" file="meta.zcml"/>
+
+  <!-- Resource traversers -->
+  <adapter
+      name="transparencia"
+      for="* zope.publisher.interfaces.IRequest"
+      provides="zope.traversing.interfaces.ITraversable"
+      factory=".traversal.TransparenciaThemeTraverser"
+      />
+
+  <plone:static
+      directory="static"
+      type="transparencia"
+      name="static"
+      />
+
+  <plone:static
+      directory="stylesheets"
+      type="transparencia"
+      name="stylesheets"
+      />
+
+  <plone:static
+      directory="js"
+      type="transparencia"
+      name="js"
+      />
+
+  <include package="z3c.jbot" file="meta.zcml" />
+
+  <browser:jbot
+      directory="templates"
+      layer=".browser.interfaces.ITransparenciaTheme"
+  />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="transparencia custom Genweb based theme"
+      directory="profiles/default"
+      description="Installs the transparencia.theme package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>

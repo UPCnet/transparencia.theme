@@ -1,0 +1,6 @@
+<layers>
+  <layer
+      name="TransparenciaTheme"
+      interface="transparencia.theme.browser.interfaces.ITransparenciaTheme"
+  />
+</layers>
