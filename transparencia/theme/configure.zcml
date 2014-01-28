@@ -14,11 +14,12 @@
   <includeDependencies package="." />
   <include package="grokcore.component" file="meta.zcml" />
   <grok:grok package=".browser" />
+  <grok:grok package=".portlets" />
 
   <include package=".browser" />
   <include package=".portlets" />
 
-  <cmf:registerDirectory name="transparenciatheme_custom" recursive="True" />
+  <cmf:registerDirectory name="TransparenciaTheme_custom" recursive="True" />
 
   <include package="plone.resource" file="meta.zcml"/>
 
