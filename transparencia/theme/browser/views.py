@@ -25,6 +25,8 @@ from scss import Scss
 from plone.formwidget.recaptcha.view import RecaptchaView, IRecaptchaInfo
 from recaptcha.client.captcha import displayhtml
 
+from vilaix.theme.browser.interfaces import IVilaixTheme
+
 
 # class GWConfig(grok.View):
 #     grok.context(Interface)

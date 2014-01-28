@@ -27,7 +27,8 @@ from genweb.core.adapters import IImportant
 from genweb.core.interfaces import IHomePage
 from genweb.core.utils import genweb_config, havePermissionAtRoot, pref_lang
 
-from genweb.theme.browser.interfaces import IGenwebTheme
+#from genweb.theme.browser.interfaces import IGenwebTheme
+from vilaix.theme.browser.interfaces import IVilaixTheme
 
 
 grok.context(Interface)
@@ -57,7 +58,7 @@ class viewletBase(grok.Viewlet):
 # class gwPersonalBarViewlet(PersonalBarViewlet, viewletBase):
 #     grok.name('genweb.personalbar')
 #     grok.viewletmanager(IPortalTop)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     index = ViewPageTemplateFile('viewlets_templates/personal_bar.pt')
 
@@ -76,7 +77,7 @@ class viewletBase(grok.Viewlet):
 #     grok.name('genweb.header')
 #     grok.template('header')
 #     grok.viewletmanager(IPortalHeader)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     def get_image_class(self):
 #         if self.genweb_config().treu_menu_horitzontal:
@@ -98,7 +99,7 @@ class viewletBase(grok.Viewlet):
 #     grok.context(IATNewsItem)
 #     grok.template('important')
 #     grok.viewletmanager(IAboveContentTitle)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     def permisos_important(self):
 #         #TODO: Comprovar que l'usuari tingui permisos per a marcar com a important
@@ -119,7 +120,7 @@ class viewletBase(grok.Viewlet):
 # class gwGlobalSectionsViewlet(GlobalSectionsViewlet, viewletBase):
 #     grok.name('genweb.globalsections')
 #     grok.viewletmanager(IPortalTop)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     index = ViewPageTemplateFile('viewlets_templates/sections.pt')
 
@@ -130,7 +131,7 @@ class viewletBase(grok.Viewlet):
 # class gwPathBarViewlet(PathBarViewlet, viewletBase):
 #     grok.name('genweb.pathbar')
 #     grok.viewletmanager(IPortalTop)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     index = ViewPageTemplateFile('viewlets_templates/path_bar.pt')
 
@@ -139,7 +140,7 @@ class viewletBase(grok.Viewlet):
 #     grok.name('genweb.footer')
 #     grok.template('footer')
 #     grok.viewletmanager(IPortalFooter)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     def getLinksPeu(self):
 #         """ links fixats per accessibilitat/rss/about """
@@ -178,7 +179,7 @@ class viewletBase(grok.Viewlet):
 # class gwSearchViewlet(SearchBoxViewlet, viewletBase):
 #     grok.context(Interface)
 #     grok.viewletmanager(gwSearchViewletManager)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     render = ViewPageTemplateFile('viewlets_templates/searchbox.pt')
 
@@ -189,7 +190,7 @@ class viewletBase(grok.Viewlet):
 #     grok.context(IPloneSiteRoot)
 #     grok.name('plone.manage_portlets_fallback')
 #     grok.viewletmanager(IBelowContent)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     render = ViewPageTemplateFile('viewlets_templates/manage_portlets_fallback.pt')
 
@@ -219,7 +220,7 @@ class viewletBase(grok.Viewlet):
 #     grok.context(Interface)
 #     grok.name('plone.htmlhead.title')
 #     grok.viewletmanager(IHtmlHead)
-#     grok.layer(IGenwebTheme)
+#     grok.layer(IVilaixTheme)
 
 #     def update(self):
 #         portal_state = getMultiAdapter((self.context, self.request),

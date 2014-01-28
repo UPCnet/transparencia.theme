@@ -1,5 +1,4 @@
-from genweb.theme.browser.interfaces import IGenwebTheme
+from vilaix.theme.browser.interfaces import IVilaixTheme
 
-
-class ITransparenciaTheme(IGenwebTheme):
-    """ Marker interface inherited from IGenwebTheme """
+class ITransparenciaTheme(IVilaixTheme):
+    """ Marker interface inherited from IVilaixTheme """
