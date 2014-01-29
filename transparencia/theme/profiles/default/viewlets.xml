@@ -5,15 +5,23 @@
     <viewlet name="plone.header"/>
     <viewlet name="genweb.globalsections"/>
     <viewlet name="genweb.pathbar"/>
+    <viewlet name="vilaix.carrousel"/>
+    <viewlet name="vilaix.carrousel_mobile"/>
   </order>
   <order manager="plone.portalheader" skinname="TransparenciaTheme">
     <viewlet name="plone.skip_links"/>
     <viewlet name="genweb.header"/>
+    <viewlet name="vilaix.randomImage"/>
+    <viewlet name="vilaix.slider"/>
   </order>
   <order manager="plone.portalfooter" skinname="TransparenciaTheme">
+    <viewlet name="vilaix.carrousel"/>
+    <viewlet name="vilaix.carrousel_mobile"/>
+    <viewlet name="vilaix.navigationPeu"/>
     <viewlet name="genweb.logosfooter"/>
     <viewlet name="genweb.footer"/>
   </order>
+
 
   <hidden manager= "plone.portalheader" skinname="TransparenciaTheme">
     <viewlet name="plone.personal_bar"/>
@@ -26,6 +34,8 @@
     <viewlet name="plone.path_bar"/>
   </hidden>
   <hidden manager= "plone.portalfooter" skinname="TransparenciaTheme">
+    <viewlet name="vilaix.carrousel"/>
+    <viewlet name="vilaix.carrousel_mobile"/>
     <viewlet name="plone.footer"/>
     <viewlet name="plone.colophon"/>
     <viewlet name="plone.site_actions"/>

@@ -4,7 +4,7 @@
     meta_type="Filesystem Directory View"
     directory="transparencia.theme:skins/transparenciatheme_custom"/>
 
- <skin-path name="TransparenciaTheme" based-on="GenwebTheme">
+ <skin-path name="TransparenciaTheme" based-on="VilaixTheme">
   <layer name="transparenciatheme_custom" insert-after="custom"/>
  </skin-path>
 
