@@ -67,7 +67,7 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" tal:attributes="href string:${portal_url}/++genweb++stylesheets/genwebupc.css">
         <link rel="stylesheet" tal:attributes="href string:${portal_url}/++vilaix++stylesheets/VilaixTheme.css">
-        <link rel="stylesheet" tal:attributes="href string:${portal_url}/++transparencia++stylesheets/TransparenciaTheme.scss">
+        <link rel="stylesheet" tal:attributes="href string:${portal_url}/++transparencia++stylesheets/TransparenciaTheme.css">
         <!-- <link rel="stylesheet" tal:attributes="href string:${portal_url}/dynamic.css"> -->
         <!-- <script tal:attributes="src string:${portal_url}/++bootstrap++js/modernizr-2.6.1.min.js"></script> -->
 
