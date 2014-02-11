@@ -60,11 +60,14 @@ class View(grok.View):
             llei = catalog.searchResults(
                     id = a,
                     portal_type='Llei',
-                    review_state = 'published')  
+                    review_state = 'published',
+                    sort_on='sortable_title', 
+                    sort_order='ascending')  
             for i in llei: 
                 dades.append(dict(titol=i.getObject().title,
                                   text_llei=i.getObject().text_llei.raw,
-                                  enllac_BOE=i.getObject().enllac_BOE
+                                  enllac_BOE=i.getObject().enllac_BOE,
+                                  url_llei=i.getObject().absolute_url()
                                  )
                             )          
              
@@ -77,7 +80,9 @@ class View(grok.View):
 
         enllacosRelacionats = catalog.searchResults(portal_type='Link',
                                                     review_state = 'published',
-                                                    path=path)
+                                                    path=path,
+                                                    sort_on='sortable_title', 
+                                                    sort_order='ascending')
         dades = [dict(id=a.id,  
                      url=a.getObject().remoteUrl,                     
                      title=a.getObject().title_or_id()
@@ -90,7 +95,9 @@ class View(grok.View):
         path = '/'.join(self.context.getPhysicalPath())               
 
         fitxersRelacionats = catalog.searchResults(portal_type='File',                                                   
-                                                   path=path)
+                                                   path=path,
+                                                   sort_on='sortable_title', 
+                                                   sort_order='ascending')
         dades = []
 
         for a in fitxersRelacionats:

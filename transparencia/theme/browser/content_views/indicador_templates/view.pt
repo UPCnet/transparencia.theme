@@ -54,6 +54,7 @@
               </div>
               <div tal:replace="structure context/descripcio_indicador/raw | nothing"></div>
               
+              <!-- Lleis amb descripció i link
               <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
                 <h4>LLeis relacionades</h4>
                 <ul tal:condition="lleisRelacionades">
@@ -61,6 +62,17 @@
                     <i class="fa fa-book"></i>     
                     <span tal:content="structure obj/text_llei"></span>                 
                     <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/enllac_BOE}" target="_blank" title="" 
+                      >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
+                  </li>                 
+                </ul>
+              </div> -->
+
+              <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
+                <h4>LLeis relacionades</h4>
+                <ul tal:condition="lleisRelacionades">
+                  <li tal:repeat="obj lleisRelacionades">
+                    <i class="fa fa-book"></i>
+                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/url_llei}" target="_self" title="" 
                       >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
                   </li>                 
                 </ul>
@@ -89,90 +101,6 @@
                 </a>
               </div>
 
-	            <!-- 	<img tal:define="imatge view/getImage" tal:condition="imatge" tal:attributes="src string:${imatge}" /> 
-              -->
-	 <!--            
-	            	<div class="columnes">
-	            		
-                  <div class="camptramit" tal:condition="context/qui" >
-                    <label class="horizontal">
-          					Qui el pot sol·licitar?      
-      					    </label>
-  		            	<p tal:replace="structure context/qui/raw | nothing"></p>
-                  </div>
-		            	
-                  <div class="camptramit" tal:condition="context/documentacio">
-  		            	<label class="horizontal">
-          					Documentació que cal aportar
-          			    </label>
-  		            	<p tal:replace="structure context/documentacio/raw | nothing"></p>
-                  </div>
-		            	
-                  <div class="camptramit" tal:condition="context/quan">
-  		            	<label class="horizontal">
-          					Quan es pot demanar?
-          			    </label>
-          			    <p tal:replace="structure context/quan/raw | nothing"></p>
-                  </div>
-		            	
-                  <div class="camptramit" tal:condition="context/quin">
-  						      <label class="horizontal">
-          					Quin és el temps de tramitació/resolució?
-          			    </label>
-  		            	<p tal:replace="structure context/quin/raw | nothing"></p>
-                  </div>
-
-                  <div class="camptramit" tal:condition="context/tipus_silenci">
-  		            	<label class="horizontal">
-          					Tipus de silenci
-          			    </label>
-  		            	<p tal:replace="structure context/tipus_silenci/raw | nothing"></p>
-                  </div>
-
-                  <div class="camptramit" tal:condition="context/preu">
-  		            	<label class="horizontal">
-          					Quin preu té la tramitació?
-          			    </label>
-  		            	<p tal:replace="structure context/preu/raw | nothing"></p>
-                  </div>
-
-                  <div class="camptramit" tal:condition="context/pagament">
-  		            	<label class="horizontal">
-          					Com puc fer el pagament?
-          			    </label>
-  		            	<p tal:replace="structure context/pagament/raw | nothing"></p>
-                  </div>
-
-                  <div class="camptramit" tal:condition="context/canals">
-                    <label class="horizontal">
-                    Quins canals de tramitació té?
-                    </label>
-                    <p tal:replace="structure context/canals/raw | nothing"></p>
-                  </div>
-
-                  <div class="camptramit" tal:condition="context/responsable">
-                    <label class="horizontal">
-                    Quin és l'organisme responsable?
-                    </label>
-                    <p tal:replace="structure context/responsable/raw | nothing"></p>
-                  </div>
-
-                  <div class="camptramit" tal:condition="context/inici">
-                    <label class="horizontal">
-                    Enllaç per iniciar el tràmit electrònicament
-                    </label>
-                    <p><a tal:attributes="href  context/inici | nothing" class="tramita"><span>Iniciar tràmit</span></a></p>
-                  </div>
-
-                  <div class="camptramit" tal:condition="context/fitxer_inici">
-                    <label class="horizontal">
-                    Fitxer annex per iniciar el tràmit presencialment.
-                    </label>
-                    <p><a tal:define="fitxer view/getFitxer" tal:attributes="href fitxer| nothing"  class="tramit_annex"><span tal:content="context/fitxer_inici/filename | nothing"></span></a></p>
-                  </div>
- 					
- 					      </div>
- -->
 		           
 	            </div>
 	          </div>
