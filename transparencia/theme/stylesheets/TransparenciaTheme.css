@@ -29,7 +29,7 @@ body {
 /* line 21, ../scss/TransparenciaTheme.scss */
 .subnavbar .nav-list a {
   text-transform: none;
-  padding: 10px 10px 10px 12px !important;
+  padding: 10px 10px 10px 12px!important;
 }
 
 /* line 25, ../scss/TransparenciaTheme.scss */
@@ -254,7 +254,7 @@ body {
 }
 /* line 197, ../scss/TransparenciaTheme.scss */
 .ico h4 {
-  color: #333333 !important;
+  color: #333!important;
   text-align: left;
 }
 /* line 201, ../scss/TransparenciaTheme.scss */

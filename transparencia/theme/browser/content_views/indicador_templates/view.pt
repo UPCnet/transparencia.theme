@@ -1,0 +1,190 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="transparencia">
+
+<body class="tramit">
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+        <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+  
+    	<h1 class="documentFirstHeading" tal:content="context/Title" /> 
+    
+	    <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+
+	  <!--   <div class="documentDescription description"  tal:content="context/Description"></div> -->
+
+	     <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+         
+         <div id="content-core">
+
+         	<div id="tramit">
+	          <div class="row-fluid">
+	            <div class="span12">
+
+              <div class="avis" tal:condition="context/Description">
+                <div class="alert" tal:content="context/Description"></div>
+              </div>
+
+              <div class="pull-right ico alert">
+                <i class="fa fa-thumbs-o-up" title="Resultat agregat: 10"></i>
+                <p>Valoració</p>
+                <hr />
+                
+                <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
+                  <h4>Accedir</h4>
+                  <ul tal:condition="enllacosRelacionats">
+                    <li tal:repeat="obj enllacosRelacionats">
+                      <i class="fa fa-external-link"></i>
+                      <a class="external-link" tal:attributes="href string:${obj/url}" target="_blank" title="" tal:content="obj/title">Suspendisse tempus</a>
+                    </li>                    
+                  </ul>
+                </div>
+              </div>
+
+              
+              <div>
+                <h4>Resum</h4>
+              </div>
+              <div tal:replace="structure context/descripcio_indicador/raw | nothing"></div>
+              
+              <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
+                <h4>LLeis relacionades</h4>
+                <ul tal:condition="lleisRelacionades">
+                  <li tal:repeat="obj lleisRelacionades">
+                    <i class="fa fa-book"></i>     
+                    <span tal:content="structure obj/text_llei"></span>                 
+                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/enllac_BOE}" target="_blank" title="" 
+                      >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
+                  </li>                 
+                </ul>
+              </div>
+
+              <div class="docsrelacionats" tal:define="fitxersRelacionats view/getFitxersRelacionats" tal:condition="fitxersRelacionats">
+                <h4>Arxius relacionats</h4>
+                <ul tal:condition="fitxersRelacionats">
+                  <li tal:repeat="obj fitxersRelacionats">  
+                      <i class="fa fa-file-text"></i>                  
+                      <strong><a tal:content="obj/title" tal:attributes="href string:${obj/absolute_url}/@@download/file/${obj/filename}">Sra. Isabel Garcia i Ripoll (Alcaldessa)</a></strong> 
+                      <br />
+                      <p><span class="peque" tal:content="obj/tipus">pdf</span><span> Arxiu </span> <span> Arxiu </span><span tal:content="obj/tipus/upper">PDF</span>                      
+                         <span tal:define="size obj/size;
+                                           kb python:size/1024">(<span tal:content="kb" /> KB)</span>
+                         <span> -  Data de publicació: </span><span tal:content="obj/data">21.12.11</span>
+                      </p>
+                      <span tal:content="obj/descripcio">Declaració pública </span>                
+                  </li>                 
+                </ul>               
+              </div>
+              
+              <div class="pull-right" tal:define="tornar view/getTornar">
+                <a class="internal-link" tal:attributes="href string:${tornar}" target="_self" title="">
+                  <button class="btn" type="button">Tornar</button>
+                </a>
+              </div>
+
+	            <!-- 	<img tal:define="imatge view/getImage" tal:condition="imatge" tal:attributes="src string:${imatge}" /> 
+              -->
+	 <!--            
+	            	<div class="columnes">
+	            		
+                  <div class="camptramit" tal:condition="context/qui" >
+                    <label class="horizontal">
+          					Qui el pot sol·licitar?      
+      					    </label>
+  		            	<p tal:replace="structure context/qui/raw | nothing"></p>
+                  </div>
+		            	
+                  <div class="camptramit" tal:condition="context/documentacio">
+  		            	<label class="horizontal">
+          					Documentació que cal aportar
+          			    </label>
+  		            	<p tal:replace="structure context/documentacio/raw | nothing"></p>
+                  </div>
+		            	
+                  <div class="camptramit" tal:condition="context/quan">
+  		            	<label class="horizontal">
+          					Quan es pot demanar?
+          			    </label>
+          			    <p tal:replace="structure context/quan/raw | nothing"></p>
+                  </div>
+		            	
+                  <div class="camptramit" tal:condition="context/quin">
+  						      <label class="horizontal">
+          					Quin és el temps de tramitació/resolució?
+          			    </label>
+  		            	<p tal:replace="structure context/quin/raw | nothing"></p>
+                  </div>
+
+                  <div class="camptramit" tal:condition="context/tipus_silenci">
+  		            	<label class="horizontal">
+          					Tipus de silenci
+          			    </label>
+  		            	<p tal:replace="structure context/tipus_silenci/raw | nothing"></p>
+                  </div>
+
+                  <div class="camptramit" tal:condition="context/preu">
+  		            	<label class="horizontal">
+          					Quin preu té la tramitació?
+          			    </label>
+  		            	<p tal:replace="structure context/preu/raw | nothing"></p>
+                  </div>
+
+                  <div class="camptramit" tal:condition="context/pagament">
+  		            	<label class="horizontal">
+          					Com puc fer el pagament?
+          			    </label>
+  		            	<p tal:replace="structure context/pagament/raw | nothing"></p>
+                  </div>
+
+                  <div class="camptramit" tal:condition="context/canals">
+                    <label class="horizontal">
+                    Quins canals de tramitació té?
+                    </label>
+                    <p tal:replace="structure context/canals/raw | nothing"></p>
+                  </div>
+
+                  <div class="camptramit" tal:condition="context/responsable">
+                    <label class="horizontal">
+                    Quin és l'organisme responsable?
+                    </label>
+                    <p tal:replace="structure context/responsable/raw | nothing"></p>
+                  </div>
+
+                  <div class="camptramit" tal:condition="context/inici">
+                    <label class="horizontal">
+                    Enllaç per iniciar el tràmit electrònicament
+                    </label>
+                    <p><a tal:attributes="href  context/inici | nothing" class="tramita"><span>Iniciar tràmit</span></a></p>
+                  </div>
+
+                  <div class="camptramit" tal:condition="context/fitxer_inici">
+                    <label class="horizontal">
+                    Fitxer annex per iniciar el tràmit presencialment.
+                    </label>
+                    <p><a tal:define="fitxer view/getFitxer" tal:attributes="href fitxer| nothing"  class="tramit_annex"><span tal:content="context/fitxer_inici/filename | nothing"></span></a></p>
+                  </div>
+ 					
+ 					      </div>
+ -->
+		           
+	            </div>
+	          </div>
+	        </div>
+            
+         </div>
+         <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
+
+
+    </tal:main-macro>
+
+</metal:main>
+
+</body>
+</html>
