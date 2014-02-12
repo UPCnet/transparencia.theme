@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from five import grok
 from Acquisition import aq_inner
 from zope.interface import Interface
@@ -16,6 +17,7 @@ from plone.memoize import ram
 
 from genweb.core.interfaces import IGenwebLayer, IHomePage
 from genweb.theme.browser.interfaces import IGenwebTheme, IHomePageView
+from genweb.theme.browser.views import HomePageBase
 from genweb.core.utils import genweb_config, pref_lang
 from genweb.portlets.browser.manager import ISpanStorage
 
@@ -25,7 +27,78 @@ from scss import Scss
 from plone.formwidget.recaptcha.view import RecaptchaView, IRecaptchaInfo
 from recaptcha.client.captcha import displayhtml
 
-from vilaix.theme.browser.interfaces import IVilaixTheme
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from transparencia.theme.browser.interfaces import ITransparenciaTheme
+from plone.app.collection.interfaces import ICollection
+
+class CollectionPortletView(HomePageBase):
+    grok.implements(IHomePageView)
+    grok.context(ICollection)
+    grok.layer(ITransparenciaTheme)
+    grok.name('indicadors_transparencia')
+
+    def render(self):
+        template = ViewPageTemplateFile('views_templates/indicadors_transparencia.pt')
+        # if not IInitializedPortlets.providedBy(self.context) or self.request.get('reset', None):
+        #     self.setDefaultPortlets()
+        return template(self)
+    
+    def getIndicadors(self):              
+        resultats = self.context.results()
+        dades = []   
+        lleis = []   
+        
+        for i in resultats:  
+            dades.append(dict(titol=i.getObject().title,
+            				  url=i.getObject().absolute_url(),
+            				  lleis=[a for a in i.getObject().keywords_llei],            				              				  
+            				  categories=i.getObject().keywords_categories                              
+                             )
+                        )          
+        return dades
+    
+    def getCategories(self, indicadors):   
+    	llistaCategories = []     	
+    	for i in indicadors:
+    		ncategories = len(i['categories'])
+    		for x in range(0, ncategories):
+    			if i['categories'][x] not in llistaCategories:
+    				llistaCategories.append(i['categories'][x])
+    	
+    	return sorted(llistaCategories)
+    
+    def getIndicadorsCategories(self, indicadors, categories):
+    	portal_catalog = getToolByName(self, 'portal_catalog')
+    	dades = []
+    	ncategories = len(categories)
+
+    	for categoria in categories:
+    		objCategoria = portal_catalog.searchResults(portal_type = 'Categoria',
+                                               idCategoria=categoria)
+    		for i in indicadors:
+    			ncatInd = len(i['categories'])
+    			for x in range(0, ncatInd):
+    				if i['categories'][x] in categoria:
+    					dades.append(dict(categoria=categoria,
+    									  titol_categoria=objCategoria[0].getObject().Title(),
+    									  dades=dict(i)
+    									  )
+    							     )
+		            				 
+		return dades
+ 			
+
+    def getLleis(self, obj): 
+    	nlleis = len(obj['dades']['lleis'])
+    	lleis = ''
+
+    	for i in range(0, nlleis):
+    		if i < nlleis-1:
+    			lleis = lleis + obj['dades']['lleis'][i] + ' , '
+    		else:
+    			lleis = lleis + obj['dades']['lleis'][i]
+        return lleis   
+  
 
 
 # class GWConfig(grok.View):

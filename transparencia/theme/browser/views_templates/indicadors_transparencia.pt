@@ -1,0 +1,116 @@
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="transparencia">
+
+<body class="tramit">
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+        <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+  
+        <h1 class="documentFirstHeading" tal:content="context/Title" /> 
+    
+        <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+
+        <div class="documentDescription description"  tal:content="context/Description"></div> 
+
+        <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+        
+     
+
+        <div id="content-core">    
+           <table class="table table-hover table-striped">
+              <thead>
+                <tr><th>ID</th><th>Indicador</th><th>Valoració</th></tr>
+              </thead>
+              
+              <tbody tal:define="indicadors view/getIndicadors" tal:condition="indicadors">
+                <tal:block tal:define="categories python:view.getCategories(indicadors)" tal:repeat="x python:range(0, len(categories))">
+                  <tal:categoria tal:define="obj python:view.getIndicadorsCategories(indicadors,categories[x])">
+                    <tr>
+                      <td colspan="2">                   
+                      <h4><span class="internal-link" tal:content="python:(obj[0]['categoria']) + ' - ' + (obj[0]['titol_categoria'])">A - Informació sobre què és, què fa i com s''organitza l'ajuntament</span></h4>
+                      </td>
+                      <td></td>
+                    </tr>
+              
+                    <tr tal:repeat="x python:range(0, len(obj))">                
+                      <td tal:content="python:x+1">1</td>                
+                    
+                      <td tal:define="obj python:obj[x]">
+                       <a class="internal-link" tal:attributes="href string:${obj/dades/url}" target="_self" title="" tal:content="obj/dades/titol">Què és, què fa i com s'organitza l'ajuntament </a> ( <span tal:define="lleis python:view.getLleis(obj)"><strong tal:content="lleis">
+                      6.1.a.b.c</strong></span> )</td> 
+                      <td><i class="fa fa-thumbs-o-up" title="Resultat agregat:5"></i></td>
+                    
+                    </tr> 
+                  </tal:categoria>
+                </tal:block>
+                     
+              </tbody>
+            </table>        
+         </div>
+
+         <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
+
+
+    </tal:main-macro>
+
+</metal:main>
+
+</body>
+</html>
+
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block use-macro="context/standard_view/macros/content-core">
+
+    <metal:entries fill-slot="entries">
+    <metal:block use-macro="context/standard_view/macros/entries">
+    <metal:entry fill-slot="entry">
+     
+       <table class="table table-hover table-striped">
+            <thead>
+              <tr><th>ID</th><th>Indicador</th><th>Valoració</th></tr>
+            </thead>
+            
+            <tbody tal:define="indicadors view/getIndicadors" tal:condition="indicadors">
+              <tr>
+                <td colspan="2">
+                <h4><span class="internal-link">A - Informació sobre què és, què fa i com s''organitza l'ajuntament</span></h4>
+                </td>
+                <td></td>
+              </tr>
+
+              <tr tal:repeat="obj indicadors">
+              <td>1</td>
+              <td><a class="internal-link" tal:attributes="href string:${obj/url}" target="_self" title="" tal:content="obj/titol">Què és, què fa i com s'organitza l'ajuntament </a>( <strong tal:content="obj/lleis">6.1.a.b.c</strong> )</td>
+              <td><i class="fa fa-thumbs-o-up" title="Resultat agregat:5"></i></td>
+              </tr>            
+            </tbody>
+       </table>
+        
+
+    </metal:entry>
+    </metal:block>
+    </metal:entries>
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html> -->
