@@ -32,11 +32,12 @@
                 <div class="alert" tal:content="context/Description"></div>
               </div>
 
-              <div class="pull-right ico alert">
-                <i class="fa fa-thumbs-o-up" title="Resultat agregat: 10"></i>
+              <div class="pull-right ico alert" tal:define="agregat view/getAgregat">
+                <i tal:attributes="class python:agregat[0]['clase'];
+                                   title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
                 <p>Valoració</p>
                 <hr />
-                
+            
                 <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
                   <h4>Accedir</h4>
                   <ul tal:condition="enllacosRelacionats">

@@ -5,5 +5,15 @@
 		<indexed_attr value="identificador"/>
 	</index>
 	<column value="idCategoria"/>
+
+	<index name="Categoria" meta_type="KeywordIndex">
+		<indexed_attr value="keywords_categories"/>
+	</index>
+	<column value="Categoria"/>
+
+	<index name="Llei" meta_type="KeywordIndex">
+		<indexed_attr value="keywords_llei"/>
+	</index>
+	<column value="Llei"/>	
 	
 </object>

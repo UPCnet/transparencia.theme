@@ -12,6 +12,14 @@ from plone.app.contenttypes.browser.utils import IUtils
 
 from Acquisition import aq_inner, aq_base, aq_parent
 
+from plone.directives import form
+from z3c.form import button
+from plone.dexterity.i18n import MessageFactory as _
+from Products.CMFPlone.interfaces import IPloneSiteRoot
+from zope.app.container.interfaces import IObjectAddedEvent
+from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+
+
 class View(grok.View):
     grok.context(IIndicador)
     grok.require('zope2.View')
@@ -23,33 +31,7 @@ class View(grok.View):
     @memoize_contextless
     def portal(self):
         return getSite()
-
-    # def getImage(self):
-    #     catalog = getToolByName(self.context, 'portal_catalog')
-    #     utool = getToolByName(self.context, 'portal_url')
-        
-    #     url = self.request.getURL()
-
-    #     if self.context.image:           
-    #         url_imatge = '%s/++widget++form.widgets.image/@@download/%s' % (url.replace("view", "@@edit"), self.context.image.filename)
-    #     else:
-    #         url_imatge = ''
-      
-    #     return url_imatge
     
-    # def getFitxer(self):
-    #     catalog = getToolByName(self.context, 'portal_catalog')
-    #     utool = getToolByName(self.context, 'portal_url')
-
-    #     url = self.request.getURL()
-        
-    #     if self.context.fitxer_inici:           
-    #         url_fitxer = '%s/++widget++form.widgets.fitxer_inici/@@download/%s' % (url.replace("view", "@@edit"), self.context.fitxer_inici.filename)
-    #     else:
-    #         url_fitxer = ''
-      
-    #     return url_fitxer
-
     def getLleisRelacionades(self):
         catalog = getToolByName(self.context, 'portal_catalog')       
         dades = []
@@ -119,3 +101,41 @@ class View(grok.View):
         parent = aq_parent(self.context)  
         return parent.absolute_url()
 
+    
+    def getAgregat(self):
+        context = self.context
+        valor = context.resultat_agregat    
+        result = []
+        clase = ''
+
+        if valor >= 0 and valor <=2:
+          clase = 'fa fa-thumbs-o-down'  
+        elif valor > 2 and valor <=4:
+          clase = 'fa fa-thumbs-o-down'  
+        elif valor > 4 and valor <=6:
+          clase = 'fa fa-eye'  
+        elif valor > 6 and valor <=8:
+          clase = 'fa fa-thumbs-o-up' 
+        elif valor > 8 and valor <=10:
+          clase = 'fa fa-exclamation'   
+
+        result.append(dict(valor=valor, 
+                           clase=clase)
+                     )
+        return result           
+
+@grok.subscribe(IIndicador, IObjectAddedEvent)
+def add_indicador(indicador, event):
+  ponderat_publicat = (indicador.valoracio_publicat * 80) / 100
+  ponderat_comprensio = (indicador.valoracio_comprensio * 20) / 100
+  resultat_agregat = ponderat_publicat + ponderat_comprensio
+  indicador.resultat_agregat = resultat_agregat
+  indicador.reindexObject()
+
+@grok.subscribe(IIndicador, IObjectModifiedEvent)
+def edit_indicador(indicador, event):
+  ponderat_publicat = (indicador.valoracio_publicat * 80) / 100
+  ponderat_comprensio = (indicador.valoracio_comprensio * 20) / 100
+  resultat_agregat = ponderat_publicat + ponderat_comprensio
+  indicador.resultat_agregat = resultat_agregat
+  indicador.reindexObject()
