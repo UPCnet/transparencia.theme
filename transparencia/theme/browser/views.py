@@ -46,24 +46,38 @@ class CollectionPortletView(HomePageBase):
     def getIndicadors(self):              
         resultats = self.context.results()
         dades = []   
-        lleis = []   
-        
+        lleis = []         
+
         for i in resultats:  
             dades.append(dict(titol=i.getObject().title,
             				  url=i.getObject().absolute_url(),
             				  lleis=[a for a in i.getObject().keywords_llei],            				              				  
             				  categories=i.getObject().keywords_categories                              
                              )
-                        )          
+                        )    
+                
         return dades
     
-    def getCategories(self, indicadors):   
-    	llistaCategories = []     	
-    	for i in indicadors:
-    		ncategories = len(i['categories'])
-    		for x in range(0, ncategories):
-    			if i['categories'][x] not in llistaCategories:
-    				llistaCategories.append(i['categories'][x])
+    def getCategories(self, indicadors):       
+    	llistaCategories = []  
+           	
+        query = self.context.query
+
+        for x in query:
+            res = x.get('i', [])
+            if res == 'Categoria':
+                categories = x.get('v', [])
+                ncategories = len(categories)
+                for n in range(0, ncategories):
+                    if categories[n] not in llistaCategories:
+                        llistaCategories.append(categories[n])
+        
+        if llistaCategories == []:                
+        	for i in indicadors:
+        		ncategories = len(i['categories'])
+        		for x in range(0, ncategories):
+        			if i['categories'][x] not in llistaCategories:
+        				llistaCategories.append(i['categories'][x])
     	
     	return sorted(llistaCategories)
     
