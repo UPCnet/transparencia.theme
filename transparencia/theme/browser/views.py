@@ -52,10 +52,10 @@ class CollectionPortletView(HomePageBase):
             dades.append(dict(titol=i.getObject().title,
             				  url=i.getObject().absolute_url(),
             				  lleis=[a for a in i.getObject().keywords_llei],            				              				  
-            				  categories=i.getObject().keywords_categories                              
+            				  categories=i.getObject().keywords_categories,
+                              agregat=self.getAgregat(i.getObject())                          
                              )
                         )    
-                
         return dades
     
     def getCategories(self, indicadors):       
@@ -113,7 +113,27 @@ class CollectionPortletView(HomePageBase):
     			lleis = lleis + obj['dades']['lleis'][i]
         return lleis   
   
+    
+    def getAgregat(self, obj):
+        valor = obj.resultat_agregat    
+        result = []
+        clase = ''
 
+        if valor >= 0 and valor <=2:
+          clase = 'fa fa-thumbs-o-down'  
+        elif valor > 2 and valor <=4:
+          clase = 'fa fa-thumbs-o-down'  
+        elif valor > 4 and valor <=6:
+          clase = 'fa fa-eye'  
+        elif valor > 6 and valor <=8:
+          clase = 'fa fa-thumbs-o-up' 
+        elif valor > 8 and valor <=10:
+          clase = 'fa fa-exclamation'   
+
+        result.append(dict(valor=valor, 
+                           clase=clase)
+                     )
+        return result        
 
 # class GWConfig(grok.View):
 #     grok.context(Interface)

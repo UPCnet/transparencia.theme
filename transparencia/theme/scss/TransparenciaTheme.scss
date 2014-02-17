@@ -96,7 +96,7 @@ background: #f5f5f5;
     border-radius: 0;
     margin-bottom: 5px;
 }
-.site-Transparencia {
+.template-indicadors_transparencia {
 table {
 	a {
 		color:black;
@@ -134,6 +134,8 @@ table {
 }
 
 }
+
+
 .docsrelacionats {
     .fa {
     color: #AAAAAA;
@@ -194,6 +196,18 @@ table {
     padding: 14px;
     text-align: center;
     }
+    .fa-thumbs-o-up {
+        background: none repeat scroll 0 0 #00A058;
+    }
+    .fa-thumbs-o-down {
+        background: none repeat scroll 0 0 #EB6039;
+    }
+    .fa-eye {
+        background: none repeat scroll 0 0 #F1B531;
+    }
+    .fa-exclamation {
+        background: none repeat scroll 0 0 #5B8CC6;
+    }
     h4 {
     color:#333!important;   
     text-align: left;     
@@ -251,5 +265,67 @@ table {
     margin-bottom: 25px;
     }
 
+// Canvis CSS Pilar
 
-    
+.datetimewidget-time {
+    display: none;
+}
+
+#form-widgets-start-day{
+    width: 115px;
+}
+
+#form-widgets-start-month{
+    width: 115px;
+}
+
+#form-widgets-start-year{
+    width: 115px;
+}
+
+#form-widgets-end-day{
+    width: 115px;
+}
+
+#form-widgets-end-month{
+    width: 115px;
+}
+
+#form-widgets-end-year{
+    width: 115px;
+}
+
+#calmonth{
+    width: 145px;
+}
+
+#calyear{
+    width: 145px;
+}
+
+#formfield-form-widgets-keywords_llei {
+    width: 550px;
+}
+
+#formfield-form-widgets-keywords_categories {
+    width: 550px;
+}
+
+#form-widgets-valoracio_publicat {
+    width: 20px;
+}
+
+#form-widgets-valoracio_comprensio {
+    width: 20px;
+}
+
+#form-widgets-IDublinCore-title {    
+    height: auto;
+    max-width: 100%;
+    min-width: 210px;
+    min-height: 30px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

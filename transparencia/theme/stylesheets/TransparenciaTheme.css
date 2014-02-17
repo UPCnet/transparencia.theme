@@ -144,15 +144,15 @@ body {
 }
 
 /* line 101, ../scss/TransparenciaTheme.scss */
-.site-Transparencia table a {
+.template-indicadors_transparencia table a {
   color: black;
 }
 /* line 104, ../scss/TransparenciaTheme.scss */
-.site-Transparencia table td {
+.template-indicadors_transparencia table td {
   vertical-align: middle;
 }
 /* line 107, ../scss/TransparenciaTheme.scss */
-.site-Transparencia table .fa {
+.template-indicadors_transparencia table .fa {
   border-radius: 30px;
   color: #FFFFFF;
   display: inline-block;
@@ -168,23 +168,23 @@ body {
   text-align: center;
 }
 /* line 122, ../scss/TransparenciaTheme.scss */
-.site-Transparencia table .fa-thumbs-o-up {
+.template-indicadors_transparencia table .fa-thumbs-o-up {
   background: none repeat scroll 0 0 #00A058;
 }
 /* line 125, ../scss/TransparenciaTheme.scss */
-.site-Transparencia table .fa-thumbs-o-down {
+.template-indicadors_transparencia table .fa-thumbs-o-down {
   background: none repeat scroll 0 0 #EB6039;
 }
 /* line 128, ../scss/TransparenciaTheme.scss */
-.site-Transparencia table .fa-eye {
+.template-indicadors_transparencia table .fa-eye {
   background: none repeat scroll 0 0 #F1B531;
 }
 /* line 131, ../scss/TransparenciaTheme.scss */
-.site-Transparencia table .fa-exclamation {
+.template-indicadors_transparencia table .fa-exclamation {
   background: none repeat scroll 0 0 #5B8CC6;
 }
 
-/* line 138, ../scss/TransparenciaTheme.scss */
+/* line 140, ../scss/TransparenciaTheme.scss */
 .docsrelacionats .fa {
   color: #AAAAAA;
   display: inline-block;
@@ -196,29 +196,29 @@ body {
   line-height: 1;
   margin-right: 15px;
 }
-/* line 149, ../scss/TransparenciaTheme.scss */
+/* line 151, ../scss/TransparenciaTheme.scss */
 .docsrelacionats fa-book {
   font-size: 32px;
   margin-top: -4px;
 }
-/* line 153, ../scss/TransparenciaTheme.scss */
+/* line 155, ../scss/TransparenciaTheme.scss */
 .docsrelacionats h4 {
   font-size: 115.385%;
   line-height: 18px;
   margin-bottom: 20px;
 }
-/* line 158, ../scss/TransparenciaTheme.scss */
+/* line 160, ../scss/TransparenciaTheme.scss */
 .docsrelacionats ul {
   margin-left: 0;
 }
-/* line 161, ../scss/TransparenciaTheme.scss */
+/* line 163, ../scss/TransparenciaTheme.scss */
 .docsrelacionats li {
   list-style: none outside none;
   margin-bottom: 25px;
   text-align: left;
 }
 
-/* line 167, ../scss/TransparenciaTheme.scss */
+/* line 169, ../scss/TransparenciaTheme.scss */
 .ico {
   background: none repeat scroll 0 0 #F5F5F5;
   color: #333;
@@ -230,11 +230,11 @@ body {
   width: 20%;
   border-radius: 0;
 }
-/* line 177, ../scss/TransparenciaTheme.scss */
+/* line 179, ../scss/TransparenciaTheme.scss */
 .ico a {
   color: #333;
 }
-/* line 180, ../scss/TransparenciaTheme.scss */
+/* line 182, ../scss/TransparenciaTheme.scss */
 .ico .fa {
   background: none repeat scroll 0 0 #008000;
   border-radius: 30px;
@@ -252,36 +252,52 @@ body {
   padding: 14px;
   text-align: center;
 }
-/* line 197, ../scss/TransparenciaTheme.scss */
+/* line 199, ../scss/TransparenciaTheme.scss */
+.ico .fa-thumbs-o-up {
+  background: none repeat scroll 0 0 #00A058;
+}
+/* line 202, ../scss/TransparenciaTheme.scss */
+.ico .fa-thumbs-o-down {
+  background: none repeat scroll 0 0 #EB6039;
+}
+/* line 205, ../scss/TransparenciaTheme.scss */
+.ico .fa-eye {
+  background: none repeat scroll 0 0 #F1B531;
+}
+/* line 208, ../scss/TransparenciaTheme.scss */
+.ico .fa-exclamation {
+  background: none repeat scroll 0 0 #5B8CC6;
+}
+/* line 211, ../scss/TransparenciaTheme.scss */
 .ico h4 {
   color: #333!important;
   text-align: left;
 }
-/* line 201, ../scss/TransparenciaTheme.scss */
+/* line 215, ../scss/TransparenciaTheme.scss */
 .ico p {
   font-size: 13px;
   line-height: 30px;
   margin-left: 10px;
 }
-/* line 207, ../scss/TransparenciaTheme.scss */
+/* line 221, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 ul {
   margin-left: 0;
   margin-top: 20px;
 }
-/* line 211, ../scss/TransparenciaTheme.scss */
+/* line 225, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 li {
   list-style: none outside none;
   margin-bottom: 15px;
   text-align: left;
 }
-/* line 216, ../scss/TransparenciaTheme.scss */
+/* line 230, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 .external-link {
   float: none;
   font-size: 13px;
   padding: 0;
   text-align: left;
 }
-/* line 222, ../scss/TransparenciaTheme.scss */
+/* line 236, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 .fa {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   border-radius: 0;
@@ -298,12 +314,12 @@ body {
   padding: 0;
   text-align: left;
 }
-/* line 239, ../scss/TransparenciaTheme.scss */
+/* line 253, ../scss/TransparenciaTheme.scss */
 .ico .avis .portalMessage {
   border-radius: 0;
 }
 
-/* line 243, ../scss/TransparenciaTheme.scss */
+/* line 257, ../scss/TransparenciaTheme.scss */
 #peu {
   background: none repeat scroll 0 0 #FFFFFF;
   border-top: 1px dotted #EEEEEE;
@@ -312,7 +328,84 @@ body {
   padding-top: 10px;
 }
 
-/* line 250, ../scss/TransparenciaTheme.scss */
+/* line 264, ../scss/TransparenciaTheme.scss */
 .avis {
   margin-bottom: 25px;
+}
+
+/* line 270, ../scss/TransparenciaTheme.scss */
+.datetimewidget-time {
+  display: none;
+}
+
+/* line 274, ../scss/TransparenciaTheme.scss */
+#form-widgets-start-day {
+  width: 115px;
+}
+
+/* line 278, ../scss/TransparenciaTheme.scss */
+#form-widgets-start-month {
+  width: 115px;
+}
+
+/* line 282, ../scss/TransparenciaTheme.scss */
+#form-widgets-start-year {
+  width: 115px;
+}
+
+/* line 286, ../scss/TransparenciaTheme.scss */
+#form-widgets-end-day {
+  width: 115px;
+}
+
+/* line 290, ../scss/TransparenciaTheme.scss */
+#form-widgets-end-month {
+  width: 115px;
+}
+
+/* line 294, ../scss/TransparenciaTheme.scss */
+#form-widgets-end-year {
+  width: 115px;
+}
+
+/* line 298, ../scss/TransparenciaTheme.scss */
+#calmonth {
+  width: 145px;
+}
+
+/* line 302, ../scss/TransparenciaTheme.scss */
+#calyear {
+  width: 145px;
+}
+
+/* line 306, ../scss/TransparenciaTheme.scss */
+#formfield-form-widgets-keywords_llei {
+  width: 550px;
+}
+
+/* line 310, ../scss/TransparenciaTheme.scss */
+#formfield-form-widgets-keywords_categories {
+  width: 550px;
+}
+
+/* line 314, ../scss/TransparenciaTheme.scss */
+#form-widgets-valoracio_publicat {
+  width: 20px;
+}
+
+/* line 318, ../scss/TransparenciaTheme.scss */
+#form-widgets-valoracio_comprensio {
+  width: 20px;
+}
+
+/* line 322, ../scss/TransparenciaTheme.scss */
+#form-widgets-IDublinCore-title {
+  height: auto;
+  max-width: 100%;
+  min-width: 210px;
+  min-height: 30px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }

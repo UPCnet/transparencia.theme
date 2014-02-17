@@ -31,6 +31,7 @@
               </thead>
               
               <tbody tal:define="indicadors view/getIndicadors" tal:condition="indicadors">
+
                 <tal:block tal:define="categories python:view.getCategories(indicadors)" tal:repeat="x python:range(0, len(categories))">
                   <tal:categoria tal:define="obj python:view.getIndicadorsCategories(indicadors,categories[x])">
                     <tr>
@@ -40,13 +41,18 @@
                       <td></td>
                     </tr>
               
-                    <tr tal:repeat="x python:range(0, len(obj))">                
-                      <td tal:content="python:x+1">1</td>                
-                    
-                      <td tal:define="obj python:obj[x]">
-                       <a class="internal-link" tal:attributes="href string:${obj/dades/url}" target="_self" title="" tal:content="obj/dades/titol">Què és, què fa i com s'organitza l'ajuntament </a> ( <span tal:define="lleis python:view.getLleis(obj)"><strong tal:content="lleis">
-                      6.1.a.b.c</strong></span> )</td> 
-                      <td><i class="fa fa-thumbs-o-up" title="Resultat agregat:5"></i></td>
+                    <tr tal:repeat="x python:range(0, len(obj))">
+                      <tal:block tal:define="obj python:obj[x]">                
+                        <td tal:content="python:x+1">1</td>                
+                      
+                        <td>                           
+                         <a class="internal-link" tal:attributes="href string:${obj/dades/url}" target="_self" title="" tal:content="obj/dades/titol">Què és, què fa i com s'organitza l'ajuntament </a> ( <span tal:define="lleis python:view.getLleis(obj)"><strong tal:content="lleis">
+                        6.1.a.b.c</strong></span> )</td> 
+                        <td tal:define="agregat obj/dades/agregat">
+                          <i tal:attributes="class python:agregat[0]['clase'];
+                                             title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
+                        </td>
+                      </tal:block>
                     
                     </tr> 
                   </tal:categoria>

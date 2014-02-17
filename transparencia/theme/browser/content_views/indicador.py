@@ -97,9 +97,9 @@ class View(grok.View):
                         )
         return dades
 
-    def getTornar(self):
-        parent = aq_parent(self.context)  
-        return parent.absolute_url()
+    # def getTornar(self):
+    #     parent = aq_parent(self.context)  
+    #     return parent.absolute_url()
 
     
     def getAgregat(self):
