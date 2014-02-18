@@ -13,5 +13,14 @@
         layer="genweb.theme.browser.interfaces.IGenwebTheme"
         /> -->
 
+    <plone:portlet
+     name="transparencia.portlets.apartat"
+     interface=".apartat.IApartatPortlet"
+     assignment=".apartat.Assignment"
+     view_permission="zope2.View"
+     renderer=".apartat.Renderer"
+     addview=".apartat.AddForm"
+     editview=".apartat.EditForm"
+     />
 
 </configure>

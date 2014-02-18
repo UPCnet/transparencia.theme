@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<portlets>    
+    <portlet title="Apartat" addview="transparencia.portlets.apartat"
+        description="Portlet d'apartats"/>
+    
+</portlets> 
