@@ -14,7 +14,7 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 
 from zope.i18nmessageid import MessageFactory
-_ = MessageFactory('upc.genweb.banners')
+_ = MessageFactory('upc.genweb.apartats')
 
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from upc.genweb.banners.content.interfaces import IBannerContainer
@@ -38,8 +38,8 @@ class IApartatPortlet(IPortletDataProvider):
     #                              description=_(u"A field to use"),
     #                              required=True)
 
-    count = schema.Int(title=_(u'Number of banners to display'),
-                       description=_(u'How many banners to list.'),
+    count = schema.Int(title=_(u'Number of apartats to display'),
+                       description=_(u'How many apartats to list.'),
                        required=True,
                        default=6)
 
@@ -59,7 +59,7 @@ class IApartatPortlet(IPortletDataProvider):
     #                                 "Leave blank to use the Plone site root."),
     #         required=False,
     #         source=SearchableTextSourceBinder({'object_provides': IBannerContainer.__identifier__,},
-    #                                           default_query='path:/material-multimedia/banners'))
+    #                                           default_query='path:/material-multimedia/apartats'))
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -103,14 +103,16 @@ class Renderer(base.Renderer):
     render = ViewPageTemplateFile('templates/apartat.pt')
         
 
-    def getBanners(self):
+    def getApartats(self):
         nElements = 3
-        banners =  self._data()
-        if len(banners) > 0:
-            #Retorna una llista amb els banners en blocs de 3 elements
-            llistaElementsBanners=[banners[i:i+nElements] for i in range(0,len(banners),nElements)]
+        apartats =  self._data()
+        llistaElementsApartats = []
+
+        if len(apartats) > 0:
+            #Retorna una llista amb els apartats en blocs de 3 elements
+            llistaElementsApartats=[apartats[i:i+nElements] for i in range(0,len(apartats),nElements)]
         
-        return llistaElementsBanners
+        return llistaElementsApartats
 
     def _data(self):
         context = aq_inner(self.context)
@@ -126,8 +128,8 @@ class Renderer(base.Renderer):
                        sort_limit=limit)[:limit]       
     
     def getBlocs(self):
-        llistaElementsBanners = self.getBanners()
-        return len(llistaElementsBanners)
+        llistaElementsApartats = self.getApartats()
+        return len(llistaElementsApartats)
 
     def test(self, value, trueVal, falseVal):
         """
@@ -169,8 +171,8 @@ class AddForm(base.AddForm):
     constructs the assignment that is being added.
     """
     form_fields = form.Fields(IApartatPortlet)
-    label = _(u"Add banners portlet")
-    description = _(u"This portlet displays the site banners.")
+    label = _(u"Add apartats portlet")
+    description = _(u"This portlet displays the site apartats.")
     #form_fields['content'].custom_widget = UberSelectionWidget
 
     def create(self, data):
@@ -188,6 +190,6 @@ class EditForm(base.EditForm):
     zope.formlib which fields to display.
     """
     form_fields = form.Fields(IApartatPortlet)
-    label = _(u"Edit banners portlet")
-    description = _(u"This portlet displays the site banners.")
+    label = _(u"Edit apartats portlet")
+    description = _(u"This portlet displays the site apartats.")
     #form_fields['content'].custom_widget = UberSelectionWidget
