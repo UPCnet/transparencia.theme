@@ -1,7 +1,7 @@
 <tal:block tal:define="apartats view/getApartats;
                        blocs view/getBlocs" 
               tal:condition="apartats"
-              i18n:domain="transparencia.core">
+              i18n:domain="transparencia">
 
     <div class="portletStaticText portlet-static">
         <div class="row-fluid portada" class="item" tal:repeat="x python:range(0, blocs)">

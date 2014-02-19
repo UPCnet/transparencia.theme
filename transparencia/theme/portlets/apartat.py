@@ -14,7 +14,7 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 
 from zope.i18nmessageid import MessageFactory
-_ = MessageFactory('upc.genweb.apartats')
+_ = MessageFactory('transparencia')
 
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from upc.genweb.banners.content.interfaces import IBannerContainer
@@ -89,7 +89,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u"Apartat Portlet")
+        return _(u"Apartats")
 
 
 class Renderer(base.Renderer):

@@ -35,11 +35,11 @@
               <div class="pull-right ico alert" tal:define="agregat view/getAgregat">
                 <i tal:attributes="class python:agregat[0]['clase'];
                                    title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
-                <p>Valoració</p>
+                <p i18n:translate="Valoracio">Valoració</p>
                 <hr />
             
                 <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
-                  <h4>Accedir</h4>
+                  <h4 i18n:translate="Accedir">Accedir</h4>
                   <ul tal:condition="enllacosRelacionats">
                     <li tal:repeat="obj enllacosRelacionats">
                       <i class="fa fa-external-link"></i>
@@ -51,7 +51,7 @@
 
               
               <div>
-                <h4>Resum</h4>
+                <h4 i18n:translate="Resum">Resum</h4>
               </div>
               <div tal:replace="structure context/descripcio_indicador/raw | nothing"></div>
               
@@ -69,7 +69,7 @@
               </div> -->
 
               <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
-                <h4>LLeis relacionades</h4>
+                <h4 i18n:translate="Lleis relacionades">LLeis relacionades</h4>
                 <ul tal:condition="lleisRelacionades">
                   <li tal:repeat="obj lleisRelacionades">
                     <i class="fa fa-book"></i>
@@ -80,16 +80,16 @@
               </div>
 
               <div class="docsrelacionats" tal:define="fitxersRelacionats view/getFitxersRelacionats" tal:condition="fitxersRelacionats">
-                <h4>Arxius relacionats</h4>
+                <h4 i18n:translate="Arxius relacionats">Arxius relacionats</h4>
                 <ul tal:condition="fitxersRelacionats">
                   <li tal:repeat="obj fitxersRelacionats">  
                       <i class="fa fa-file-text"></i>                  
-                      <strong><a tal:content="obj/title" tal:attributes="href string:${obj/absolute_url}/@@download/file/${obj/filename}">Sra. Isabel Garcia i Ripoll (Alcaldessa)</a></strong> 
+                      <strong><a tal:content="obj/title" tal:attributes="href string:${obj/absolute_url}/@@download/file/${obj/filename}">Sra. (Alcaldessa)</a></strong> 
                       <br />
-                      <p><span class="peque" tal:content="obj/tipus">pdf</span><span> Arxiu </span> <span> Arxiu </span><span tal:content="obj/tipus/upper">PDF</span>                      
+                      <p><span class="peque" tal:content="obj/tipus">pdf</span><span i18n:translate="Arxiu"> Arxiu </span> <span i18n:translate="Arxiu"> Arxiu </span><span tal:content="obj/tipus/upper">PDF</span>                      
                          <span tal:define="size obj/size;
                                            kb python:size/1024">(<span tal:content="kb" /> KB)</span>
-                         <span> -  Data de publicació: </span><span tal:content="obj/data">21.12.11</span>
+                         <span i18n:translate="Data de publicació"> -  Data de publicació: </span><span tal:content="obj/data">21.12.11</span>
                       </p>
                       <span tal:content="obj/descripcio">Declaració pública </span>                
                   </li>                 
@@ -98,7 +98,7 @@
               
               <div class="pull-right">
                 <a class="internal-link" href="javascript:history.back(-1)" target="_self" title="">
-                  <button class="btn" type="button">Tornar</button>
+                  <button class="btn" type="button" i18n:translate="Tornar">Tornar</button>
                 </a>
               </div>
 
