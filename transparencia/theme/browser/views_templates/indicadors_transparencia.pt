@@ -27,7 +27,7 @@
         <div id="content-core">    
            <table class="table table-hover table-striped">
               <thead>
-                <tr><th i18n:translate="ID">ID</th><th i18n:translate="Indicador">Indicador</th><th i18n:translate="Valoracio">Valoració</th></tr>
+                <tr><th i18n:translate="ID">ID</th><th i18n:translate="Indicador">Indicador</th><!-- <th i18n:translate="Valoracio">Valoració</th> --></tr>
               </thead>
               
               <tbody tal:define="indicadors view/getIndicadors" tal:condition="indicadors">
@@ -49,10 +49,10 @@
                         <td>                           
                          <a class="internal-link" tal:attributes="href string:${obj/dades/url}" target="_self" title="" tal:content="obj/dades/titol">Què és, què fa i com s'organitza l'ajuntament </a> ( <span tal:define="lleis python:view.getLleis(obj)"><strong tal:content="lleis">
                         6.1.a.b.c</strong></span> )</td> 
-                        <td tal:define="agregat obj/dades/agregat">
+                        <!-- <td tal:define="agregat obj/dades/agregat">
                           <i tal:attributes="class python:agregat[0]['clase'];
                                              title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
-                        </td>
+                        </td> -->
                       </tal:block>
                     
                     </tr> 

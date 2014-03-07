@@ -33,10 +33,10 @@
               </div>
 
               <div class="pull-right ico alert" tal:define="agregat view/getAgregat">
-                <i tal:attributes="class python:agregat[0]['clase'];
+               <!--  <i tal:attributes="class python:agregat[0]['clase'];
                                    title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
                 <p i18n:translate="Valoracio">Valoració</p>
-                <hr />
+                <hr /> -->
             
                 <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
                   <h4 i18n:translate="Accedir">Accedir</h4>
