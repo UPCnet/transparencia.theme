@@ -329,3 +329,55 @@ table {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+// Afegit Pilar pendent revisar Marc.
+
+.apartat .fa {
+    background: none repeat scroll 0 0 #333333;
+    border-radius: 70px;
+    color: #FFFFFF;
+    display: inline-block;
+    float: left;
+    font-family: FontAwesome;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 35px;
+    margin-right: 13px;
+    margin-top: 20px;
+    min-width: 40px;
+    padding: 20px;
+    text-align: center;
+}
+.apartat .fa-bar-chart-o {
+    background: none repeat scroll 0 0 #eb6039;
+}
+.apartat .fa-money {
+    background: none repeat scroll 0 0 #00a058;
+}
+.apartat .fa-unlock-alt {
+    background: none repeat scroll 0 0 #794c9f;
+}
+.apartat .fa-thumbs-o-up {
+    background: none repeat scroll 0 0 #f1b531;
+}
+.apartat .fa-building-o {
+    background: none repeat scroll 0 0 #5b8cc6;
+}
+.apartat .fa-book {
+    background: none repeat scroll 0 0 #5db6c6;
+}
+.apartat .span4 > p {
+    line-height: 19px;
+}
+.apartat a {color:black;}
+.accordion-group {
+    border-radius: 0;
+    margin-bottom: 5px;
+}
+
+.apartat.span4 {
+    width: 30% !important;
+    border: none;
+}

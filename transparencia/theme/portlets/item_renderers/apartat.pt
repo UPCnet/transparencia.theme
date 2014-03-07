@@ -1,0 +1,18 @@
+<li class="apartat span4">
+    <tal:item tal:attributes="class view/rendererClass">
+       <i tal:condition="view/item/icon" tal:attributes="class string:fa fa-${view/item/icon}"></i>                   
+      
+        <h3><a tal:attributes="href view/item/url;
+	                           target view/getTarget;                       
+                       		   title view/item/Title"
+               class="internal-link">
+               <span class="external-link" tal:content="view/item/Title">Title</span>
+            </a>
+        </h3>
+        <p><a tal:attributes="href view/item/url;" 
+               class="internal-link">
+               <span class="external-link" tal:content="view/item/Description">Description</span>
+            </a>
+        </p>
+    </tal:item>
+</li>
