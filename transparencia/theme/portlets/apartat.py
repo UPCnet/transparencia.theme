@@ -50,6 +50,13 @@ class IApartatPortlet(IPortletDataProvider):
                          value_type=schema.Choice(
                              vocabulary="plone.app.vocabularies.WorkflowStates")
                          )
+    
+    etiqueta = schema.TextLine(
+        title=_(u"Etiqueta"),
+        description=_(u"Nom de l'etiqueta"),
+        required=True,
+        default=_(u"principal"),
+    )
 
     # content = schema.Choice(
     #         title=_(u"label_navigation_root_path", default=u"Root node"),
@@ -79,10 +86,11 @@ class Assignment(base.Assignment):
     # def __init__(self, some_field=u""):
     #    self.some_field = some_field
 
-    def __init__(self, count=6, state=('published', ), content=None):
+    def __init__(self, count=6, state=('published', ), content=None, etiqueta='principal'):
         self.count = count
         self.state = state
         self.content = content
+        self.etiqueta = etiqueta
 
     @property
     def title(self):
@@ -118,12 +126,14 @@ class Renderer(base.Renderer):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
         limit = self.data.count
-        state = self.data.state        
+        state = self.data.state      
+        etiqueta = self.data.etiqueta  
         portal_state = getMultiAdapter((context, self.request),
             name='plone_portal_state')
         path = portal_state.navigation_root_path()
         return catalog(portal_type='Apartat',
-                       review_state=state,                       
+                       review_state=state,       
+                       Subject=etiqueta,                
                        sort_on='getObjPositionInParent',
                        sort_limit=limit)[:limit]       
     
@@ -176,7 +186,7 @@ class AddForm(base.AddForm):
     #form_fields['content'].custom_widget = UberSelectionWidget
 
     def create(self, data):
-        return Assignment(count=data.get('count', 6), state=data.get('state', ('published',)))
+        return Assignment(count=data.get('count', 6), state=data.get('state', ('published',)), etiqueta=data.get('etiqueta', 'principal'))
 
 
 # NOTE: IF this portlet does not have any configurable parameters, you can
