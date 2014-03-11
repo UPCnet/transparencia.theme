@@ -95,7 +95,7 @@ class CollectionPortletView(HomePageBase):
     			for x in range(0, ncatInd):
     				if i['categories'][x] in categoria:
     					dades.append(dict(categoria=categoria,
-    									  titol_categoria=objCategoria[0].getObject().Title(),
+    									  titol_categoria=objCategoria[0].getObject().title,
     									  dades=dict(i)
     									  )
     							     )
