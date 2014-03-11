@@ -49,13 +49,14 @@ class CollectionPortletView(HomePageBase):
         lleis = []         
 
         for i in resultats:  
-            dades.append(dict(titol=i.getObject().title,
-            				  url=i.getObject().absolute_url(),
-            				  lleis=[a for a in i.getObject().keywords_llei],            				              				  
-            				  categories=i.getObject().keywords_categories,
-                              agregat=self.getAgregat(i.getObject())                          
-                             )
-                        )    
+            if i.getObject().portal_type == 'Indicador':
+                dades.append(dict(titol=i.getObject().title,
+                				  url=i.getObject().absolute_url(),
+                				  lleis=[a for a in i.getObject().keywords_llei],            				              				  
+                				  categories=i.getObject().keywords_categories,
+                                  agregat=self.getAgregat(i.getObject())                          
+                                 )
+                            )    
         return dades
     
     def getCategories(self, indicadors):       
@@ -85,7 +86,7 @@ class CollectionPortletView(HomePageBase):
     	portal_catalog = getToolByName(self, 'portal_catalog')
     	dades = []
     	ncategories = len(categories)
-
+        
     	for categoria in categories:
     		objCategoria = portal_catalog.searchResults(portal_type = 'Categoria',
                                                idCategoria=categoria)
