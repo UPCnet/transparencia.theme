@@ -37,7 +37,7 @@
 
                       <tr>
                         <td colspan="2">  
-                         <h4><span class="internal-link" tal:content="python:(obj[0]['categoria']) + ' - ' + (obj[0]['titol_categoria'])">A - Informació sobre què és, què fa i com s''organitza l'ajuntament</span></h4>
+                         <h4><span class="internal-link" tal:content="python:(obj[0]['titol_categoria'])">A - Informació sobre què és, què fa i com s''organitza l'ajuntament</span></h4>
                         </td>
                         <td></td>
                       </tr>

@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="transparencia">
+
+<body class="indicador">
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+        <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+  
+    	<h1 class="documentFirstHeading" tal:content="context/Title" /> 
+    
+	    <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+
+	  <!--   <div class="documentDescription description"  tal:content="context/Description"></div> -->
+
+	     <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+         
+         <div id="content-core">
+
+         	<div id="llei">
+	          <div class="row-fluid">
+	            <div class="span12">
+
+               <h4 i18n:translate="descllei">Descripció llei</h4>
+
+               <div tal:replace="structure context/text_llei/raw | nothing"></div>
+              
+               <h4 i18n:translate="docreferencia">Enllaç a document de referència</h4>
+               
+               <div>
+                 <i class="fa fa-external-link"></i>
+                 <a class="external-link" tal:attributes="href string:${context/enllac_BOE}" target="_blank" title="" tal:content="context/enllac_BOE">Suspendisse tempus</a>
+               </div>            
+		           
+	            </div>
+	          </div>
+	        </div>
+            
+         </div>
+         <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
+
+
+    </tal:main-macro>
+
+</metal:main>
+
+</body>
+</html>
