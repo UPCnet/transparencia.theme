@@ -40,7 +40,7 @@ class View(grok.View):
 
         for a in lleis:
             llei = catalog.searchResults(
-                    title = a,
+                    id = a,
                     portal_type='Llei',
                     review_state = 'published',
                     sort_on='sortable_title', 
