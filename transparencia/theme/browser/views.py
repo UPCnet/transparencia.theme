@@ -102,17 +102,28 @@ class CollectionPortletView(HomePageBase):
 		            				 
 		return dades
  			
+    def getTitolLlei(self, obj): 
+        catalog = getToolByName(self.context, 'portal_catalog')    
+        llei = catalog.searchResults(
+                    id = obj,
+                    portal_type='Llei',
+                    review_state = 'published',
+                    sort_on='sortable_title', 
+                    sort_order='ascending')  
+        return llei[0].getObject().title
 
     def getLleis(self, obj): 
     	nlleis = len(obj['dades']['lleis'])
     	lleis = ''
 
     	for i in range(0, nlleis):
-    		if i < nlleis-1:
-    			lleis = lleis + obj['dades']['lleis'][i] + ' , '
-    		else:
-    			lleis = lleis + obj['dades']['lleis'][i]
-        return lleis   
+            if i < nlleis-1:
+                titol_llei = self.getTitolLlei(obj['dades']['lleis'][i])
+                lleis = lleis + titol_llei + ' , '
+            else:
+                titol_llei = self.getTitolLlei(obj['dades']['lleis'][i])
+                lleis = lleis + titol_llei
+        return lleis    	
   
     
     def getAgregat(self, obj):
