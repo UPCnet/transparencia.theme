@@ -37,16 +37,18 @@
                                    title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
                 <p i18n:translate="Valoracio">Valoració</p>
                 <hr /> -->
-            
-                <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
-                  <h4 i18n:translate="Accedir">Accedir</h4>
-                  <ul tal:condition="enllacosRelacionats">
-                    <li tal:repeat="obj enllacosRelacionats">
-                      <i class="fa fa-external-link"></i>
-                      <a class="external-link" tal:attributes="href string:${obj/url}" target="_blank" title="" tal:content="obj/title">Suspendisse tempus</a>
-                    </li>                    
-                  </ul>
-                </div>
+
+              <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
+                <h4 i18n:translate="Lleis relacionades">LLeis relacionades</h4>
+                <ul tal:condition="lleisRelacionades">
+                  <li tal:repeat="obj lleisRelacionades">
+                    <i class="fa fa-book"></i>
+                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/url_llei}" target="_self" title="" 
+                      >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
+                  </li>                 
+                </ul>
+              </div>            
+                
               </div>
 
               
@@ -67,15 +69,15 @@
                   </li>                 
                 </ul>
               </div> -->
+             
 
-              <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
-                <h4 i18n:translate="Lleis relacionades">LLeis relacionades</h4>
-                <ul tal:condition="lleisRelacionades">
-                  <li tal:repeat="obj lleisRelacionades">
-                    <i class="fa fa-book"></i>
-                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/url_llei}" target="_self" title="" 
-                      >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
-                  </li>                 
+              <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
+                <h4 i18n:translate="Accedir">Enllaços a la informació</h4>
+                <ul tal:condition="enllacosRelacionats">
+                  <li tal:repeat="obj enllacosRelacionats">
+                    <i class="fa fa-external-link"></i>
+                    <a class="external-link" tal:attributes="href string:${obj/url}" target="_blank" title="" tal:content="obj/title">Suspendisse tempus</a>
+                  </li>                    
                 </ul>
               </div>
 
