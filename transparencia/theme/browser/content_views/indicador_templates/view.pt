@@ -39,7 +39,7 @@
                 <hr /> -->
 
               <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
-                <h4 i18n:translate="Lleis relacionades">LLeis relacionades</h4>
+                <h4 i18n:translate="Lleis relacionades">Lleis relacionades</h4>
                 <ul tal:condition="lleisRelacionades">
                   <li tal:repeat="obj lleisRelacionades">
                     <i class="fa fa-book"></i>
