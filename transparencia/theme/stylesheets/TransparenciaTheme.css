@@ -29,7 +29,7 @@ body {
 /* line 21, ../scss/TransparenciaTheme.scss */
 .subnavbar .nav-list a {
   text-transform: none;
-  padding: 10px 10px 10px 12px!important;
+  padding: 10px 10px 10px 12px !important;
 }
 
 /* line 25, ../scss/TransparenciaTheme.scss */
@@ -184,41 +184,7 @@ body {
   background: none repeat scroll 0 0 #5B8CC6;
 }
 
-/* line 140, ../scss/TransparenciaTheme.scss */
-.docsrelacionats .fa {
-  color: #AAAAAA;
-  display: inline-block;
-  float: left;
-  font-family: FontAwesome;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  margin-right: 15px;
-}
-/* line 151, ../scss/TransparenciaTheme.scss */
-.docsrelacionats fa-book {
-  font-size: 32px;
-  margin-top: -4px;
-}
-/* line 155, ../scss/TransparenciaTheme.scss */
-.docsrelacionats h4 {
-  font-size: 115.385%;
-  line-height: 18px;
-  margin-bottom: 20px;
-}
-/* line 160, ../scss/TransparenciaTheme.scss */
-.docsrelacionats ul {
-  margin-left: 0;
-}
-/* line 163, ../scss/TransparenciaTheme.scss */
-.docsrelacionats li {
-  list-style: none outside none;
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-/* line 169, ../scss/TransparenciaTheme.scss */
+/* line 138, ../scss/TransparenciaTheme.scss */
 .ico {
   background: none repeat scroll 0 0 #F5F5F5;
   color: #333;
@@ -230,11 +196,11 @@ body {
   width: 20%;
   border-radius: 0;
 }
-/* line 179, ../scss/TransparenciaTheme.scss */
+/* line 148, ../scss/TransparenciaTheme.scss */
 .ico a {
   color: #333;
 }
-/* line 182, ../scss/TransparenciaTheme.scss */
+/* line 151, ../scss/TransparenciaTheme.scss */
 .ico .fa {
   background: none repeat scroll 0 0 #008000;
   border-radius: 30px;
@@ -252,52 +218,52 @@ body {
   padding: 14px;
   text-align: center;
 }
-/* line 199, ../scss/TransparenciaTheme.scss */
+/* line 168, ../scss/TransparenciaTheme.scss */
 .ico .fa-thumbs-o-up {
   background: none repeat scroll 0 0 #00A058;
 }
-/* line 202, ../scss/TransparenciaTheme.scss */
+/* line 171, ../scss/TransparenciaTheme.scss */
 .ico .fa-thumbs-o-down {
   background: none repeat scroll 0 0 #EB6039;
 }
-/* line 205, ../scss/TransparenciaTheme.scss */
+/* line 174, ../scss/TransparenciaTheme.scss */
 .ico .fa-eye {
   background: none repeat scroll 0 0 #F1B531;
 }
-/* line 208, ../scss/TransparenciaTheme.scss */
+/* line 177, ../scss/TransparenciaTheme.scss */
 .ico .fa-exclamation {
   background: none repeat scroll 0 0 #5B8CC6;
 }
-/* line 211, ../scss/TransparenciaTheme.scss */
+/* line 180, ../scss/TransparenciaTheme.scss */
 .ico h4 {
-  color: #333!important;
+  color: #333333 !important;
   text-align: left;
 }
-/* line 215, ../scss/TransparenciaTheme.scss */
+/* line 184, ../scss/TransparenciaTheme.scss */
 .ico p {
   font-size: 13px;
   line-height: 30px;
   margin-left: 10px;
 }
-/* line 221, ../scss/TransparenciaTheme.scss */
+/* line 190, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 ul {
   margin-left: 0;
   margin-top: 20px;
 }
-/* line 225, ../scss/TransparenciaTheme.scss */
+/* line 194, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 li {
   list-style: none outside none;
   margin-bottom: 15px;
   text-align: left;
 }
-/* line 230, ../scss/TransparenciaTheme.scss */
+/* line 199, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 .external-link {
   float: none;
   font-size: 13px;
   padding: 0;
   text-align: left;
 }
-/* line 236, ../scss/TransparenciaTheme.scss */
+/* line 205, ../scss/TransparenciaTheme.scss */
 .ico .lleis2 .fa {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   border-radius: 0;
@@ -314,12 +280,12 @@ body {
   padding: 0;
   text-align: left;
 }
-/* line 253, ../scss/TransparenciaTheme.scss */
+/* line 222, ../scss/TransparenciaTheme.scss */
 .ico .avis .portalMessage {
   border-radius: 0;
 }
 
-/* line 257, ../scss/TransparenciaTheme.scss */
+/* line 226, ../scss/TransparenciaTheme.scss */
 #peu {
   background: none repeat scroll 0 0 #FFFFFF;
   border-top: 1px dotted #EEEEEE;
@@ -328,77 +294,77 @@ body {
   padding-top: 10px;
 }
 
-/* line 264, ../scss/TransparenciaTheme.scss */
+/* line 233, ../scss/TransparenciaTheme.scss */
 .avis {
   margin-bottom: 25px;
 }
 
-/* line 270, ../scss/TransparenciaTheme.scss */
+/* line 239, ../scss/TransparenciaTheme.scss */
 .datetimewidget-time {
   display: none;
 }
 
-/* line 274, ../scss/TransparenciaTheme.scss */
+/* line 243, ../scss/TransparenciaTheme.scss */
 #form-widgets-start-day {
   width: 115px;
 }
 
-/* line 278, ../scss/TransparenciaTheme.scss */
+/* line 247, ../scss/TransparenciaTheme.scss */
 #form-widgets-start-month {
   width: 115px;
 }
 
-/* line 282, ../scss/TransparenciaTheme.scss */
+/* line 251, ../scss/TransparenciaTheme.scss */
 #form-widgets-start-year {
   width: 115px;
 }
 
-/* line 286, ../scss/TransparenciaTheme.scss */
+/* line 255, ../scss/TransparenciaTheme.scss */
 #form-widgets-end-day {
   width: 115px;
 }
 
-/* line 290, ../scss/TransparenciaTheme.scss */
+/* line 259, ../scss/TransparenciaTheme.scss */
 #form-widgets-end-month {
   width: 115px;
 }
 
-/* line 294, ../scss/TransparenciaTheme.scss */
+/* line 263, ../scss/TransparenciaTheme.scss */
 #form-widgets-end-year {
   width: 115px;
 }
 
-/* line 298, ../scss/TransparenciaTheme.scss */
+/* line 267, ../scss/TransparenciaTheme.scss */
 #calmonth {
   width: 145px;
 }
 
-/* line 302, ../scss/TransparenciaTheme.scss */
+/* line 271, ../scss/TransparenciaTheme.scss */
 #calyear {
   width: 145px;
 }
 
-/* line 306, ../scss/TransparenciaTheme.scss */
+/* line 275, ../scss/TransparenciaTheme.scss */
 #formfield-form-widgets-keywords_llei {
   width: 550px;
 }
 
-/* line 310, ../scss/TransparenciaTheme.scss */
+/* line 279, ../scss/TransparenciaTheme.scss */
 #formfield-form-widgets-keywords_categories {
   width: 550px;
 }
 
-/* line 314, ../scss/TransparenciaTheme.scss */
+/* line 283, ../scss/TransparenciaTheme.scss */
 #form-widgets-valoracio_publicat {
   width: 20px;
 }
 
-/* line 318, ../scss/TransparenciaTheme.scss */
+/* line 287, ../scss/TransparenciaTheme.scss */
 #form-widgets-valoracio_comprensio {
   width: 20px;
 }
 
-/* line 322, ../scss/TransparenciaTheme.scss */
+/* line 291, ../scss/TransparenciaTheme.scss */
 #form-widgets-IDublinCore-title {
   height: auto;
   max-width: 100%;
@@ -410,7 +376,7 @@ body {
   box-sizing: border-box;
 }
 
-/* line 335, ../scss/TransparenciaTheme.scss */
+/* line 304, ../scss/TransparenciaTheme.scss */
 .apartat .fa {
   background: none repeat scroll 0 0 #333333;
   border-radius: 70px;
@@ -430,59 +396,163 @@ body {
   text-align: center;
 }
 
-/* line 353, ../scss/TransparenciaTheme.scss */
+/* line 322, ../scss/TransparenciaTheme.scss */
 .apartat .fa-bar-chart-o {
   background: none repeat scroll 0 0 #eb6039;
 }
 
-/* line 356, ../scss/TransparenciaTheme.scss */
+/* line 325, ../scss/TransparenciaTheme.scss */
 .apartat .fa-money {
   background: none repeat scroll 0 0 #00a058;
 }
 
-/* line 359, ../scss/TransparenciaTheme.scss */
+/* line 328, ../scss/TransparenciaTheme.scss */
 .apartat .fa-unlock-alt {
   background: none repeat scroll 0 0 #794c9f;
 }
 
-/* line 362, ../scss/TransparenciaTheme.scss */
+/* line 331, ../scss/TransparenciaTheme.scss */
 .apartat .fa-thumbs-o-up {
   background: none repeat scroll 0 0 #f1b531;
 }
 
-/* line 365, ../scss/TransparenciaTheme.scss */
+/* line 334, ../scss/TransparenciaTheme.scss */
 .apartat .fa-building-o {
   background: none repeat scroll 0 0 #5b8cc6;
 }
 
-/* line 368, ../scss/TransparenciaTheme.scss */
+/* line 337, ../scss/TransparenciaTheme.scss */
 .apartat .fa-book {
   background: none repeat scroll 0 0 #5db6c6;
 }
 
-/* line 371, ../scss/TransparenciaTheme.scss */
+/* line 340, ../scss/TransparenciaTheme.scss */
 .apartat .span4 > p {
   line-height: 19px;
 }
 
-/* line 374, ../scss/TransparenciaTheme.scss */
+/* line 343, ../scss/TransparenciaTheme.scss */
 .apartat a {
   color: black;
 }
 
-/* line 375, ../scss/TransparenciaTheme.scss */
+/* line 344, ../scss/TransparenciaTheme.scss */
 .accordion-group {
   border-radius: 0;
   margin-bottom: 5px;
 }
 
-/* line 380, ../scss/TransparenciaTheme.scss */
+/* line 349, ../scss/TransparenciaTheme.scss */
 .apartat.span4 {
   width: 30% !important;
   border: none;
 }
 
-/* line 385, ../scss/TransparenciaTheme.scss */
+/* line 354, ../scss/TransparenciaTheme.scss */
+.ico {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-color: #999999 #DDDDDD #DDDDDD;
+  border-image: none;
+  border-radius: 0;
+  border-right: 1px solid #DDDDDD;
+  border-style: solid;
+  border-width: 4px 1px 1px;
+  color: #333333;
+  margin-left: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 20%;
+}
+
+/* line 372, ../scss/TransparenciaTheme.scss */
+.fa.fa-external-link {
+  font-size: 24px;
+}
+
+/* line 375, ../scss/TransparenciaTheme.scss */
+.lleis2 li {
+  list-style: none outside none;
+}
+
+/* line 378, ../scss/TransparenciaTheme.scss */
+.lleis2 {
+  margin-top: 20px;
+}
+
+/* line 381, ../scss/TransparenciaTheme.scss */
+.lleis2 h4 {
+  margin-bottom: 15px;
+}
+
+/* line 384, ../scss/TransparenciaTheme.scss */
+.lleis2 > ul {
+  margin-left: 0;
+}
+
+/* line 387, ../scss/TransparenciaTheme.scss */
+.lleis2 li {
+  list-style: none outside none;
+  margin-bottom: 5px;
+}
+
+/* line 391, ../scss/TransparenciaTheme.scss */
+.lleis2 .fa {
+  color: #aaa;
+  font-size: 16px;
+  margin-right: 7px;
+}
+
+/* line 397, ../scss/TransparenciaTheme.scss */
+.docsrelacionats .fa {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  color: #aaa;
+  display: inline-block;
+  float: left;
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-left: 0;
+  margin-right: 8px;
+  min-width: 0;
+  opacity: 1;
+  padding: 0;
+  text-align: left;
+  margin-top: 2px;
+}
+/* line 415, ../scss/TransparenciaTheme.scss */
+.docsrelacionats fa-book {
+  font-size: 32px;
+  margin-top: -4px;
+}
+/* line 419, ../scss/TransparenciaTheme.scss */
+.docsrelacionats h4 {
+  font-size: 115.385%;
+  line-height: 18px;
+  margin-bottom: 20px;
+}
+/* line 424, ../scss/TransparenciaTheme.scss */
+.docsrelacionats ul {
+  margin-left: 0;
+}
+/* line 427, ../scss/TransparenciaTheme.scss */
+.docsrelacionats li {
+  list-style: none outside none;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* line 433, ../scss/TransparenciaTheme.scss */
+.subsection-ley-de-transparencia {
+  float: none;
+}
+
+/* line 437, ../scss/TransparenciaTheme.scss */
 #portal-header {
   background: none repeat scroll 0 0 white;
   border-bottom: medium none;

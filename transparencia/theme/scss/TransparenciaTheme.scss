@@ -135,37 +135,6 @@ table {
 
 }
 
-
-.docsrelacionats {
-    .fa {
-    color: #AAAAAA;
-    display: inline-block;
-    float: left;
-    font-family: FontAwesome;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    margin-right: 15px;
-    }
-    fa-book {
-    font-size: 32px;
-    margin-top: -4px;
-    }
-    h4 {
-    font-size: 115.385%;
-    line-height: 18px;
-    margin-bottom: 20px;
-    }
-    ul {
-    margin-left: 0;
-    }
-    li {
-    list-style: none outside none;
-    margin-bottom: 25px;
-    text-align: left;
-    }
-}
 .ico {
     background: none repeat scroll 0 0 #F5F5F5;
     color:#333;
@@ -382,6 +351,89 @@ table {
     border: none;
 }
 
+.ico {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #999999 #DDDDDD #DDDDDD;
+    border-image: none;
+    border-radius: 0;
+    border-right: 1px solid #DDDDDD;
+    border-style: solid;
+    border-width: 4px 1px 1px;
+    color: #333333;
+    margin-left: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 20%;
+}
+.fa.fa-external-link {
+    font-size: 24px;
+}
+.lleis2 li {
+    list-style: none outside none;
+}
+.lleis2 {
+    margin-top: 20px;
+}
+.lleis2 h4 {
+    margin-bottom: 15px;
+}
+.lleis2 > ul {
+    margin-left: 0;
+}
+.lleis2 li {
+    list-style: none outside none;
+    margin-bottom: 5px;
+}
+.lleis2 .fa {
+    color: #aaa;
+    font-size: 16px;
+    margin-right: 7px;
+}
+.docsrelacionats {
+    .fa {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #aaa;
+    display: inline-block;
+    float: left;
+    font-family: FontAwesome;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin-left: 0;
+    margin-right: 8px;
+    min-width: 0;
+    opacity: 1;
+    padding: 0;
+    text-align: left;
+    margin-top: 2px;
+    }
+    fa-book {
+    font-size: 32px;
+    margin-top: -4px;
+    }
+    h4 {
+    font-size: 115.385%;
+    line-height: 18px;
+    margin-bottom: 20px;
+    }
+    ul {
+    margin-left: 0;
+    }
+    li {
+    list-style: none outside none;
+    margin-bottom: 10px;
+    text-align: left;
+    }
+}
+.subsection-ley-de-transparencia {
+    float: none;
+}
+
 #portal-header {
     background: none repeat scroll 0 0 white;
     border-bottom: medium none;
@@ -389,3 +441,4 @@ table {
     margin: 0 auto;    
     margin-bottom: 30px !important;
 }
+
