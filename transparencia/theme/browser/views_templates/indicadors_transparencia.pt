@@ -60,7 +60,14 @@
                   </tal:block>                     
             
               </table> 
-            </tbody>       
+            </tbody>   
+            
+            <div class="pull-right">
+              <a class="internal-link" href="javascript:history.back(-1)" target="_self" title="">
+                <button class="btn" type="button" i18n:translate="Tornar">Tornar</button>
+              </a>
+            </div>
+                  
          </div>
 
          <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
