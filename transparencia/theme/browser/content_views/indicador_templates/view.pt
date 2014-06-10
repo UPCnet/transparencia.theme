@@ -13,15 +13,15 @@
         tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
 
         <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-  
-    	<h1 class="documentFirstHeading" tal:content="context/Title" /> 
-    
+
+    	<h1 class="documentFirstHeading" tal:content="context/Title" />
+
 	    <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
 	  <!--   <div class="documentDescription description"  tal:content="context/Description"></div> -->
 
 	     <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
-         
+
          <div id="content-core">
 
          	<div id="indicador">
@@ -33,43 +33,43 @@
               </div>
 
               <div class="pull-right ico alert" tal:define="agregat view/getAgregat">
-               <!--  <i tal:attributes="class python:agregat[0]['clase'];
+                <i tal:attributes="class python:agregat[0]['clase'];
                                    title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
                 <p i18n:translate="Valoracio">Valoració</p>
-                <hr /> -->
+                <hr />
 
               <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
                 <h4 i18n:translate="Lleis relacionades">Lleis relacionades</h4>
                 <ul tal:condition="lleisRelacionades">
                   <li tal:repeat="obj lleisRelacionades">
                     <i class="fa fa-book"></i>
-                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/url_llei}" target="_self" title="" 
+                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/url_llei}" target="_self" title=""
                       >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
-                  </li>                 
+                  </li>
                 </ul>
-              </div>            
-                
               </div>
 
-              
+              </div>
+
+
               <div>
                 <h4 i18n:translate="Resum">Resum</h4>
               </div>
               <div tal:replace="structure context/descripcio_indicador/raw | nothing"></div>
-              
+
               <!-- Lleis amb descripció i link
               <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
                 <h4>LLeis relacionades</h4>
                 <ul tal:condition="lleisRelacionades">
                   <li tal:repeat="obj lleisRelacionades">
-                    <i class="fa fa-book"></i>     
-                    <span tal:content="structure obj/text_llei"></span>                 
-                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/enllac_BOE}" target="_blank" title="" 
+                    <i class="fa fa-book"></i>
+                    <span tal:content="structure obj/text_llei"></span>
+                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/enllac_BOE}" target="_blank" title=""
                       >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
-                  </li>                 
+                  </li>
                 </ul>
               </div> -->
-             
+
 
               <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
                 <h4 i18n:translate="Accedir">Enllaços a la informació</h4>
@@ -77,38 +77,38 @@
                   <li tal:repeat="obj enllacosRelacionats">
                     <i class="fa fa-external-link"></i>
                     <a class="external-link" tal:attributes="href string:${obj/url}" target="_blank" title="" tal:content="obj/title">Suspendisse tempus</a>
-                  </li>                    
+                  </li>
                 </ul>
               </div>
 
               <div class="docsrelacionats" tal:define="fitxersRelacionats view/getFitxersRelacionats" tal:condition="fitxersRelacionats">
                 <h4 i18n:translate="Arxius relacionats">Arxius relacionats</h4>
                 <ul tal:condition="fitxersRelacionats">
-                  <li tal:repeat="obj fitxersRelacionats">  
-                      <i class="fa fa-file-text"></i>                  
-                      <strong><a tal:content="obj/title" tal:attributes="href string:${obj/absolute_url}/@@download/file/${obj/filename}">Sra. (Alcaldessa)</a></strong> 
+                  <li tal:repeat="obj fitxersRelacionats">
+                      <i class="fa fa-file-text"></i>
+                      <strong><a tal:content="obj/title" tal:attributes="href string:${obj/absolute_url}/@@download/file/${obj/filename}">Sra. (Alcaldessa)</a></strong>
                       <br />
-                      <p><span class="peque" tal:content="obj/tipus">pdf</span><span i18n:translate="Arxiu"> Arxiu </span> <span i18n:translate="Arxiu"> Arxiu </span><span tal:content="obj/tipus/upper">PDF</span>                      
+                      <p><span class="peque" tal:content="obj/tipus">pdf</span><span i18n:translate="Arxiu"> Arxiu </span> <span i18n:translate="Arxiu"> Arxiu </span><span tal:content="obj/tipus/upper">PDF</span>
                          <span tal:define="size obj/size;
                                            kb python:size/1024">(<span tal:content="kb" /> KB)</span>
                          <span i18n:translate="Data de publicació"> -  Data de publicació: </span><span tal:content="obj/data">21.12.11</span>
                       </p>
-                      <span tal:content="obj/descripcio">Declaració pública </span>                
-                  </li>                 
-                </ul>               
+                      <span tal:content="obj/descripcio">Declaració pública </span>
+                  </li>
+                </ul>
               </div>
-              
+
               <div class="pull-right">
                 <a class="internal-link" href="javascript:history.back(-1)" target="_self" title="">
                   <button class="btn" type="button" i18n:translate="Tornar">Tornar</button>
                 </a>
               </div>
 
-		           
+
 	            </div>
 	          </div>
 	        </div>
-            
+
          </div>
          <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
 

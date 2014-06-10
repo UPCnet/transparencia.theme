@@ -29,6 +29,8 @@ from genweb.core.utils import genweb_config, havePermissionAtRoot, pref_lang
 
 #from genweb.theme.browser.interfaces import IGenwebTheme
 from vilaix.theme.browser.interfaces import IVilaixTheme
+from transparencia.theme.browser.interfaces import ITransparenciaTheme
+from genweb.theme.browser.interfaces import IHomePageView
 
 
 grok.context(Interface)
@@ -128,12 +130,22 @@ class viewletBase(grok.Viewlet):
 #         return not self.genweb_config().treu_menu_horitzontal and self.portal_tabs
 
 
-# class gwPathBarViewlet(PathBarViewlet, viewletBase):
-#     grok.name('genweb.pathbar')
-#     grok.viewletmanager(IPortalTop)
-#     grok.layer(IVilaixTheme)
+class gwPathBarViewlet(PathBarViewlet, viewletBase):
+    grok.name('genweb.pathbar')
+    grok.viewletmanager(IPortalTop)
+    grok.layer(ITransparenciaTheme)
 
-#     index = ViewPageTemplateFile('viewlets_templates/path_bar.pt')
+    index = ViewPageTemplateFile('viewlets_templates/path_bar.pt')
+
+    def paginaPrincipal(self):
+        return IHomePageView.providedBy(self.view) and IPloneSiteRoot.providedBy(self.context)
+
+    def is_manager(self):
+        secman = getSecurityManager()
+        if secman.checkPermission('Portlets: Manage portlets', self.context):
+            return True
+        else:
+            return False
 
 
 # class gwFooter(viewletBase):

@@ -13,61 +13,62 @@
         tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
 
         <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-  
-        <h1 class="documentFirstHeading" tal:content="context/Title" /> 
-    
+
+        <h1 class="documentFirstHeading" tal:content="context/Title" />
+
         <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
-        <div class="documentDescription description"  tal:content="context/Description"></div> 
+        <div class="documentDescription description"  tal:content="context/Description"></div>
 
         <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
-        
-     
 
-        <div id="content-core">    
+
+
+        <div id="content-core">
+
            <tbody tal:define="indicadors view/getIndicadors" tal:condition="indicadors">
              <table class="table table-hover table-striped">
                 <thead>
                   <tr><!-- <th i18n:translate="ID">ID</th> --><th i18n:translate="Indicador">Indicador</th><!-- <th i18n:translate="Valoracio">Valoració</th> --></tr>
                 </thead>
-                
-             
+
+
                   <tal:block tal:define="categories python:view.getCategories(indicadors)" tal:repeat="x python:range(0, len(categories))">
                     <tal:categoria tal:define="obj python:view.getIndicadorsCategories(indicadors,categories[x])">
 
                       <tr>
-                        <td colspan="2">  
+                        <td colspan="2">
                          <h4><span class="internal-link" tal:content="python:(obj[0]['titol_categoria'])">A - Informació sobre què és, què fa i com s''organitza l'ajuntament</span></h4>
                         </td>
                         <td></td>
                       </tr>
-                
+
                       <tr tal:repeat="x python:range(0, len(obj))">
-                        <tal:block tal:define="obj python:obj[x]">                
-                          <!-- <td tal:content="python:x+1">1</td>  -->               
-                        
-                          <td>                           
+                        <tal:block tal:define="obj python:obj[x]">
+                          <!-- <td tal:content="python:x+1">1</td>  -->
+
+                          <td>
                            <a class="internal-link" tal:attributes="href string:${obj/dades/url}" target="_self" title="" tal:content="obj/dades/titol">Què és, què fa i com s'organitza l'ajuntament </a> ( <span tal:define="lleis python:view.getLleis(obj)"><strong tal:content="lleis">
-                          6.1.a.b.c</strong></span> )</td> 
-                          <!-- <td tal:define="agregat obj/dades/agregat">
+                          6.1.a.b.c</strong></span> )</td>
+                          <td tal:define="agregat obj/dades/agregat">
                             <i tal:attributes="class python:agregat[0]['clase'];
                                                title python:'Resultat agregat: ' + str(agregat[0]['valor'])"></i>
-                          </td> -->
+                          </td>
                         </tal:block>
-                      
-                      </tr> 
+
+                      </tr>
                     </tal:categoria>
-                  </tal:block>                     
-            
-              </table> 
-            </tbody>   
-            
+                  </tal:block>
+
+              </table>
+            </tbody>
+
             <div class="pull-right">
               <a class="internal-link" href="javascript:history.back(-1)" target="_self" title="">
                 <button class="btn" type="button" i18n:translate="Tornar">Tornar</button>
               </a>
             </div>
-                  
+
          </div>
 
          <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />

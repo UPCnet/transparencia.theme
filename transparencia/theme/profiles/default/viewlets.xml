@@ -3,7 +3,8 @@
   <order manager="plone.portaltop" skinname="TransparenciaTheme">
     <viewlet name="genweb.personalbar" insert-before="*"/>
     <viewlet name="plone.header"/>
-    <viewlet name="genweb.globalsections"/>    
+    <viewlet name="genweb.globalsections"/>
+    <viewlet name="genweb.pathbar"/>
     <viewlet name="vilaix.carrousel"/>
     <viewlet name="vilaix.carrousel_mobile"/>
   </order>
@@ -42,8 +43,5 @@
   <hidden manager= "plone.htmlhead.links" skinname="TransparenciaTheme">
     <viewlet name="l10n.datepicker"/>
     <viewlet name="plone.links.favicon"/>
-  </hidden>
-  <hidden manager="plone.portaltop" skinname="TransparenciaTheme">
-    <viewlet name="genweb.pathbar"/>
   </hidden>
 </object>
