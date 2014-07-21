@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0dev (unreleased)
--------------------
+1.0b2 (2014-07-21)
+------------------
 
  * Breadcrumb not anonymous [Pilar Marinas]
  * Afegit boto tornar vista indicadors [Pilar Marinas]
