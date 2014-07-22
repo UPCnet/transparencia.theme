@@ -19,10 +19,18 @@ from Products.CMFPlone.interfaces import IPloneSiteRoot
 from zope.app.container.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 
 class View(grok.View):
     grok.context(IIndicador)
     grok.require('zope2.View')
+
+    index = ViewPageTemplateFile("indicador_templates/indicadorview.pt")
+
+    def render(self):
+        # defer to index method, because that's what gets overridden by the template ZCML attribute
+        return self.index()
 
     @memoize_contextless
     def portal_url(self):
@@ -31,9 +39,9 @@ class View(grok.View):
     @memoize_contextless
     def portal(self):
         return getSite()
-    
+
     def getLleisRelacionades(self):
-        catalog = getToolByName(self.context, 'portal_catalog')       
+        catalog = getToolByName(self.context, 'portal_catalog')
         dades = []
 
         lleis = self.context.keywords_llei
@@ -43,51 +51,51 @@ class View(grok.View):
                     id = a,
                     portal_type='Llei',
                     review_state = 'published',
-                    sort_on='sortable_title', 
-                    sort_order='ascending')  
-            for i in llei: 
+                    sort_on='sortable_title',
+                    sort_order='ascending')
+            for i in llei:
                 dades.append(dict(titol=i.getObject().title,
                                   text_llei=i.getObject().text_llei.raw,
                                   enllac_BOE=i.getObject().enllac_BOE,
                                   url_llei=i.getObject().absolute_url()
                                  )
-                            )          
-             
+                            )
+
         return dades
 
     def getEnllacosRelacionats(self):
-        catalog = getToolByName(self.context, 'portal_catalog')     
-    
-        path = '/'.join(self.context.getPhysicalPath())               
+        catalog = getToolByName(self.context, 'portal_catalog')
+
+        path = '/'.join(self.context.getPhysicalPath())
 
         enllacosRelacionats = catalog.searchResults(portal_type='Link',
                                                     review_state = 'published',
                                                     path=path,
-                                                    sort_on='sortable_title', 
+                                                    sort_on='sortable_title',
                                                     sort_order='ascending')
-        dades = [dict(id=a.id,  
-                     url=a.getObject().remoteUrl,                     
+        dades = [dict(id=a.id,
+                     url=a.getObject().remoteUrl,
                      title=a.getObject().title_or_id()
-                     ) for a in enllacosRelacionats] 
+                     ) for a in enllacosRelacionats]
         return dades
 
     def getFitxersRelacionats(self):
-        catalog = getToolByName(self.context, 'portal_catalog')     
-    
-        path = '/'.join(self.context.getPhysicalPath())               
+        catalog = getToolByName(self.context, 'portal_catalog')
 
-        fitxersRelacionats = catalog.searchResults(portal_type='File',                                                   
+        path = '/'.join(self.context.getPhysicalPath())
+
+        fitxersRelacionats = catalog.searchResults(portal_type='File',
                                                    path=path,
-                                                   sort_on='sortable_title', 
+                                                   sort_on='sortable_title',
                                                    sort_order='ascending')
         dades = []
 
         for a in fitxersRelacionats:
             obj = a.getObject()
 
-            dades.append(dict(id=obj.id,  
-                              descripcio=obj.Description,                     
-                              title=obj.title_or_id(),                    
+            dades.append(dict(id=obj.id,
+                              descripcio=obj.Description,
+                              title=obj.title_or_id(),
                               absolute_url=self.context.absolute_url() + '/' + obj.id,
                               filename=obj.file.filename,
                               size=obj.file.getSize(),
@@ -98,31 +106,31 @@ class View(grok.View):
         return dades
 
     # def getTornar(self):
-    #     parent = aq_parent(self.context)  
+    #     parent = aq_parent(self.context)
     #     return parent.absolute_url()
 
-    
+
     def getAgregat(self):
         context = self.context
-        valor = context.resultat_agregat    
+        valor = context.resultat_agregat
         result = []
         clase = ''
 
         if valor >= 0 and valor <=2:
-          clase = 'fa fa-thumbs-o-down'  
+          clase = 'fa fa-thumbs-o-down'
         elif valor > 2 and valor <=4:
-          clase = 'fa fa-thumbs-o-down'  
+          clase = 'fa fa-thumbs-o-down'
         elif valor > 4 and valor <=6:
-          clase = 'fa fa-eye'  
+          clase = 'fa fa-eye'
         elif valor > 6 and valor <=8:
-          clase = 'fa fa-thumbs-o-up' 
+          clase = 'fa fa-thumbs-o-up'
         elif valor > 8 and valor <=10:
-          clase = 'fa fa-exclamation'   
+          clase = 'fa fa-exclamation'
 
-        result.append(dict(valor=valor, 
+        result.append(dict(valor=valor,
                            clase=clase)
                      )
-        return result           
+        return result
 
 @grok.subscribe(IIndicador, IObjectAddedEvent)
 def add_indicador(indicador, event):

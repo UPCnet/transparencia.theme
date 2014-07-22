@@ -31,37 +31,39 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from transparencia.theme.browser.interfaces import ITransparenciaTheme
 from plone.app.collection.interfaces import ICollection
 
+
 class CollectionPortletView(HomePageBase):
     grok.implements(IHomePageView)
     grok.context(ICollection)
     grok.layer(ITransparenciaTheme)
     grok.name('indicadors_transparencia')
 
-    def render(self):
-        template = ViewPageTemplateFile('views_templates/indicadors_transparencia.pt')
-        # if not IInitializedPortlets.providedBy(self.context) or self.request.get('reset', None):
-        #     self.setDefaultPortlets()
-        return template(self)
-    
-    def getIndicadors(self):              
-        resultats = self.context.results()
-        dades = []   
-        lleis = []         
+    index = ViewPageTemplateFile("views_templates/indicadors_transparencia.pt")
 
-        for i in resultats:  
+    def render(self):
+        # defer to index method, because that's what gets overridden by the template ZCML attribute
+        return self.index()
+
+
+    def getIndicadors(self):
+        resultats = self.context.results()
+        dades = []
+        lleis = []
+
+        for i in resultats:
             if i.getObject().portal_type == 'Indicador':
                 dades.append(dict(titol=i.getObject().title,
                 				  url=i.getObject().absolute_url(),
-                				  lleis=[a for a in i.getObject().keywords_llei],            				              				  
+                				  lleis=[a for a in i.getObject().keywords_llei],
                 				  categories=i.getObject().keywords_categories,
-                                  agregat=self.getAgregat(i.getObject())                          
+                                  agregat=self.getAgregat(i.getObject())
                                  )
-                            )    
+                            )
         return dades
-    
-    def getCategories(self, indicadors):       
-    	llistaCategories = []  
-           	
+
+    def getCategories(self, indicadors):
+    	llistaCategories = []
+
         query = self.context.query
 
         for x in query:
@@ -72,21 +74,21 @@ class CollectionPortletView(HomePageBase):
                 for n in range(0, ncategories):
                     if categories[n] not in llistaCategories:
                         llistaCategories.append(categories[n])
-        
-        if llistaCategories == []:                
+
+        if llistaCategories == []:
         	for i in indicadors:
         		ncategories = len(i['categories'])
         		for x in range(0, ncategories):
         			if i['categories'][x] not in llistaCategories:
         				llistaCategories.append(i['categories'][x])
-    	
+
     	return sorted(llistaCategories)
-    
+
     def getIndicadorsCategories(self, indicadors, categories):
     	portal_catalog = getToolByName(self, 'portal_catalog')
     	dades = []
     	ncategories = len(categories)
-        
+
     	for categoria in categories:
     		objCategoria = portal_catalog.searchResults(portal_type = 'Categoria',
                                                idCategoria=categoria)
@@ -99,20 +101,20 @@ class CollectionPortletView(HomePageBase):
     									  dades=dict(i)
     									  )
     							     )
-		            				 
+
 		return dades
- 			
-    def getTitolLlei(self, obj): 
-        catalog = getToolByName(self.context, 'portal_catalog')    
+
+    def getTitolLlei(self, obj):
+        catalog = getToolByName(self.context, 'portal_catalog')
         llei = catalog.searchResults(
                     id = obj,
                     portal_type='Llei',
                     review_state = 'published',
-                    sort_on='sortable_title', 
-                    sort_order='ascending')  
+                    sort_on='sortable_title',
+                    sort_order='ascending')
         return llei[0].getObject().title
 
-    def getLleis(self, obj): 
+    def getLleis(self, obj):
     	nlleis = len(obj['dades']['lleis'])
     	lleis = ''
 
@@ -123,29 +125,29 @@ class CollectionPortletView(HomePageBase):
             else:
                 titol_llei = self.getTitolLlei(obj['dades']['lleis'][i])
                 lleis = lleis + titol_llei
-        return lleis    	
-  
-    
+        return lleis
+
+
     def getAgregat(self, obj):
-        valor = obj.resultat_agregat    
+        valor = obj.resultat_agregat
         result = []
         clase = ''
 
         if valor >= 0 and valor <=2:
-          clase = 'fa fa-thumbs-o-down'  
+          clase = 'fa fa-thumbs-o-down'
         elif valor > 2 and valor <=4:
-          clase = 'fa fa-thumbs-o-down'  
+          clase = 'fa fa-thumbs-o-down'
         elif valor > 4 and valor <=6:
-          clase = 'fa fa-eye'  
+          clase = 'fa fa-eye'
         elif valor > 6 and valor <=8:
-          clase = 'fa fa-thumbs-o-up' 
+          clase = 'fa fa-thumbs-o-up'
         elif valor > 8 and valor <=10:
-          clase = 'fa fa-exclamation'   
+          clase = 'fa fa-exclamation'
 
-        result.append(dict(valor=valor, 
+        result.append(dict(valor=valor,
                            clase=clase)
                      )
-        return result        
+        return result
 
 # class GWConfig(grok.View):
 #     grok.context(Interface)

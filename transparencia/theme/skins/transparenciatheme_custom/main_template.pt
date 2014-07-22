@@ -37,7 +37,7 @@
     <meta name="author" content="Genweb Vilaix" />
     <meta name="description" content="Genweb Vilaix v4.0" />
     <link rel="shortcut icon" type="image/x-icon" tal:attributes="href string:${portal_url}/++vilaix++static/favicon.ico" />
-    
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 
     <metal:baseslot define-slot="base">
@@ -211,6 +211,17 @@
     <script tal:attributes="src string:${portal_url}/++genweb++static/js/prettify.js"></script>
     <script tal:attributes="src string:${portal_url}/++genweb++static/js/keywords.js"></script>
     <script tal:attributes="src string:${portal_url}/++genweb++static/js/jquery.mixitup.min.js"></script>
+    <script tal:attributes="src string:${portal_url}/++genweb++static/js/alertify.min.js"></script>
+    <script tal:attributes="src string:${portal_url}/++components++root/select2/select2.js"></script>
+
+    <tal:select2lang condition="python:lang=='ca'">
+      <script tal:attributes="src string:${portal_url}/++components++root/select2/select2_locale_ca.js"></script>
+    </tal:select2lang>
+
+    <tal:select2lang condition="python:lang=='es'">
+      <script tal:attributes="src string:${portal_url}/++components++root/select2/select2_locale_es.js"></script>
+    </tal:select2lang>
+    <script tal:attributes="src string:${portal_url}/++genweb++static/js/underscore-min.js"></script>
 
     <!--[if IE 8]>
     <script type="text/javascript" src="http://malsup.github.com/jquery.corner.js"></script>

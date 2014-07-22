@@ -18,11 +18,18 @@ from plone.dexterity.i18n import MessageFactory as _
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from zope.app.container.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class View(grok.View):
     grok.context(ILlei)
     grok.require('zope2.View')
+
+    index = ViewPageTemplateFile("llei_templates/lleiview.pt")
+
+    def render(self):
+        # defer to index method, because that's what gets overridden by the template ZCML attribute
+        return self.index()
 
     @memoize_contextless
     def portal_url(self):
