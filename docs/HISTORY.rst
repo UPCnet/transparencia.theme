@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b3 (unreleased)
+1.0b3 (2014-07-22)
 ------------------
 
-- Nothing changed yet.
-
+* Canvis perque funcioni [Pilar Marinas]
 
 1.0b2 (2014-07-21)
 ------------------
