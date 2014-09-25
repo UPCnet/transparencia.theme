@@ -7,11 +7,7 @@
 
     <include package="plone.app.portlets" />
 
-<!--     <plone:portletRenderer
-        portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
-        class=".portlets.gwNavigation"
-        layer="genweb.theme.browser.interfaces.IGenwebTheme"
-        /> -->
+
 
     <plone:portlet
      name="transparencia.portlets.apartat"

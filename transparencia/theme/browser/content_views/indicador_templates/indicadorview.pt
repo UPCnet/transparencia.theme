@@ -18,7 +18,6 @@
 
 	    <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
-	  <!--   <div class="documentDescription description"  tal:content="context/Description"></div> -->
 
 	     <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
 
@@ -56,19 +55,6 @@
                 <h4 i18n:translate="Resum">Resum</h4>
               </div>
               <div tal:replace="structure context/descripcio_indicador/raw | nothing"></div>
-
-              <!-- Lleis amb descripció i link
-              <div class="docsrelacionats" tal:define="lleisRelacionades view/getLleisRelacionades" tal:condition="lleisRelacionades">
-                <h4>LLeis relacionades</h4>
-                <ul tal:condition="lleisRelacionades">
-                  <li tal:repeat="obj lleisRelacionades">
-                    <i class="fa fa-book"></i>
-                    <span tal:content="structure obj/text_llei"></span>
-                    <a class="external-link" tal:content="obj/titol" tal:attributes="href string:${obj/enllac_BOE}" target="_blank" title=""
-                      >Suspendisse tempus orci eget mauris pulvinar, at euismod enim rhoncus.</a>
-                  </li>
-                </ul>
-              </div> -->
 
 
               <div class="lleis2" tal:define="enllacosRelacionats view/getEnllacosRelacionats" tal:condition="enllacosRelacionats">
