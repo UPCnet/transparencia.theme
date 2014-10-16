@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b4 (unreleased)
+1.0b4 (2014-10-16)
 ------------------
 
-- Nothing changed yet.
-
+* Borrar codigo comentado [Pilar Marinas]
 
 1.0b3 (2014-07-22)
 ------------------
