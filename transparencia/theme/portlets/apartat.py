@@ -17,9 +17,9 @@ from zope.i18nmessageid import MessageFactory
 _ = MessageFactory('transparencia')
 
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
-from upc.genweb.banners.content.interfaces import IBannerContainer
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from zope.component import getMultiAdapter
+
 
 class IApartatPortlet(IPortletDataProvider):
     """A portlet
@@ -50,7 +50,7 @@ class IApartatPortlet(IPortletDataProvider):
                          value_type=schema.Choice(
                              vocabulary="plone.app.vocabularies.WorkflowStates")
                          )
-    
+
     etiqueta = schema.TextLine(
         title=_(u"Etiqueta"),
         description=_(u"Nom de l'etiqueta"),
@@ -58,15 +58,6 @@ class IApartatPortlet(IPortletDataProvider):
         default=_(u"principal"),
     )
 
-    # content = schema.Choice(
-    #         title=_(u"label_navigation_root_path", default=u"Root node"),
-    #         description=_(u'help_navigation_root',
-    #                       default=u"You may search for and choose a folder "
-    #                                 "to act as the root of the navigation tree. "
-    #                                 "Leave blank to use the Plone site root."),
-    #         required=False,
-    #         source=SearchableTextSourceBinder({'object_provides': IBannerContainer.__identifier__,},
-    #                                           default_query='path:/material-multimedia/apartats'))
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -109,7 +100,7 @@ class Renderer(base.Renderer):
     """
 
     render = ViewPageTemplateFile('templates/apartat.pt')
-        
+
 
     def getApartats(self):
         nElements = 3
@@ -119,24 +110,24 @@ class Renderer(base.Renderer):
         if len(apartats) > 0:
             #Retorna una llista amb els apartats en blocs de 3 elements
             llistaElementsApartats=[apartats[i:i+nElements] for i in range(0,len(apartats),nElements)]
-        
+
         return llistaElementsApartats
 
     def _data(self):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
         limit = self.data.count
-        state = self.data.state      
-        etiqueta = self.data.etiqueta  
+        state = self.data.state
+        etiqueta = self.data.etiqueta
         portal_state = getMultiAdapter((context, self.request),
             name='plone_portal_state')
         path = portal_state.navigation_root_path()
         return catalog(portal_type='Apartat',
-                       review_state=state,       
-                       Subject=etiqueta,                
+                       review_state=state,
+                       Subject=etiqueta,
                        sort_on='getObjPositionInParent',
-                       sort_limit=limit)[:limit]       
-    
+                       sort_limit=limit)[:limit]
+
     def getBlocs(self):
         llistaElementsApartats = self.getApartats()
         return len(llistaElementsApartats)
@@ -167,7 +158,7 @@ class Renderer(base.Renderer):
             str = "(obriu en una finestra nova)"
         return altortitle + ', ' + str
 
-    
+
 
 # NOTE: If this portlet does not have any configurable parameters, you can
 # inherit from NullAddForm and remove the form_fields variable.
