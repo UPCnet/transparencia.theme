@@ -178,8 +178,8 @@ table {
         background: none repeat scroll 0 0 #5B8CC6;
     }
     h4 {
-    color:#333!important;   
-    text-align: left;     
+    color:#333!important;
+    text-align: left;
     }
     p {
     font-size: 13px;
@@ -214,11 +214,11 @@ table {
     font-weight: normal;
     line-height: 1;
     margin: 0 5px 0 0;
-    min-width: 0;   
+    min-width: 0;
     padding: 0;
     text-align: left;
     }
-}    
+}
 .avis .portalMessage {
     border-radius: 0;
     }
@@ -288,7 +288,7 @@ table {
     width: 20px;
 }
 
-#form-widgets-IDublinCore-title {    
+#form-widgets-IDublinCore-title {
     height: auto;
     max-width: 100%;
     min-width: 210px;
@@ -438,7 +438,10 @@ table {
     background: none repeat scroll 0 0 white;
     border-bottom: medium none;
     border-top: 2px solid #0073B8;
-    margin: 0 auto;    
+    margin: 0 auto;
     margin-bottom: 30px !important;
 }
 
+.portada .link_blank {
+    display: none;
+}

@@ -1,32 +1,32 @@
 <tal:block tal:define="apartats view/getApartats;
-                       blocs view/getBlocs" 
+                       blocs view/getBlocs"
               tal:condition="apartats"
               i18n:domain="transparencia">
 
     <div class="portletStaticText portlet-static">
-        <div class="row-fluid portada" class="item" tal:repeat="x python:range(0, blocs)">
+        <div class="row-fluid portada" tal:repeat="x python:range(0, blocs)">
             <tal:block tal:define="apartatsBloc python:apartats[x]">
                 <div class="span4" tal:repeat="section apartatsBloc">
                     <tal:item tal:define="obj python:section.getObject()">
-                        <i tal:condition="obj/icon" tal:attributes="class string:fa fa-${obj/icon}"></i>                  
-                     
+                        <i tal:condition="obj/icon" tal:attributes="class string:fa fa-${obj/icon}"></i>
+
                         <h3><a tal:attributes="href obj/url;
                                                target python:obj.new_window and '_blank' or nothing;
-                                               title python:view.getAltAndTitle(obj.Title())" 
+                                               title python:view.getAltAndTitle(obj.Title())"
                                class="internal-link">
                                <span class="external-link" tal:content="obj/title">Indicadors</span>
                             </a>
                         </h3>
                         <p><a tal:attributes="href obj/url;
                                                target python:obj.new_window and '_blank' or nothing;
-                                               title python:view.getAltAndTitle(obj.Description())" 
+                                               title python:view.getAltAndTitle(obj.Description())"
                                class="internal-link">
                                <span class="external-link" tal:content="obj/description">Accedeix a totes les informacions municipals rellevants</span>
                             </a>
                         </p>
                     </tal:item>
                 </div>
-            </tal:block> 
+            </tal:block>
         </div>
     </div>
-</tal:block> 
+</tal:block>

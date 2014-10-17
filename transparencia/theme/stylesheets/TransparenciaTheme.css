@@ -29,7 +29,7 @@ body {
 /* line 21, ../scss/TransparenciaTheme.scss */
 .subnavbar .nav-list a {
   text-transform: none;
-  padding: 10px 10px 10px 12px !important;
+  padding: 10px 10px 10px 12px!important;
 }
 
 /* line 25, ../scss/TransparenciaTheme.scss */
@@ -236,7 +236,7 @@ body {
 }
 /* line 180, ../scss/TransparenciaTheme.scss */
 .ico h4 {
-  color: #333333 !important;
+  color: #333!important;
   text-align: left;
 }
 /* line 184, ../scss/TransparenciaTheme.scss */
@@ -559,4 +559,9 @@ body {
   border-top: 2px solid #0073B8;
   margin: 0 auto;
   margin-bottom: 30px !important;
+}
+
+/* line 445, ../scss/TransparenciaTheme.scss */
+.portada .link_blank {
+  display: none;
 }
