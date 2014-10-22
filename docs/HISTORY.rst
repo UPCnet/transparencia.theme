@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b6 (unreleased)
+1.0b6 (2014-10-22)
 ------------------
 
-- Nothing changed yet.
-
+* Treure etiquetes arxivat sota si anonim [Pilar Marinas]
 
 1.0b5 (2014-10-20)
 ------------------
