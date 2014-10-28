@@ -203,7 +203,6 @@
     <tal:comment replace="nothing"> <!-- A partir d'aqui, els JS comuns d'inicialització --> </tal:comment>
 
 
-    <script tal:attributes="src string:${portal_url}/++genweb++static/js/scrollability.js"></script>
     <script tal:attributes="src string:${portal_url}/++genweb++static/js/fileinput.js"></script>
     <script tal:attributes="src string:${portal_url}/++genweb++static/js/customInput.js"></script>
     <script tal:attributes="src string:${portal_url}/++genweb++static/js/jquery.nicescroll.js"></script>
