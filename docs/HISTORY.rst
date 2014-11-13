@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.0b7 (unreleased)
+1.0b7 (2014-11-13)
 ------------------
 
-- Nothing changed yet.
-
+* Treure titol Indicador a la vista indicadors [Pilar Marinas]
+* Treure js scrollability [Pilar Marinas]
+* Treure linebreak event view [Pilar Marinas]
 
 1.0b6 (2014-10-22)
 ------------------
